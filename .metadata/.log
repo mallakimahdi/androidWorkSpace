@@ -411,3 +411,15 @@ java.lang.ClassCastException: java.lang.Object cannot be cast to org.eclipse.e4.
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1438)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1414)
+
+!ENTRY org.eclipse.egit.core 4 0 2014-05-30 10:07:34.013
+!MESSAGE An exception occurred during push on URI https://github.com/mallakimahdi/androidWorkSpace.git: Nothing to push.
+!STACK 0
+org.eclipse.jgit.errors.TransportException: Nothing to push.
+	at org.eclipse.jgit.transport.Transport.push(Transport.java:1159)
+	at org.eclipse.egit.core.op.PushOperation.run(PushOperation.java:185)
+	at org.eclipse.egit.ui.internal.push.PushWizard$PushJob.run(PushWizard.java:298)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.egit.ui 4 0 2014-05-30 10:07:34.017
+!MESSAGE Can't connect to any repository: https://github.com/mallakimahdi/androidWorkSpace.git (Nothing to push.)
