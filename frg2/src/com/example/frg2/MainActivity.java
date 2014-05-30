@@ -39,16 +39,14 @@ public class MainActivity extends Activity
 			arrays.add(stru);
 		}
 
+		/*
 		WindowManager wm = (WindowManager) this.getSystemService(Context.WINDOW_SERVICE);
 		Display display = wm.getDefaultDisplay();
 		int width = display.getWidth();
 		int count = width/70;
-		int columns[] = {0,1};
-		for(int i=0 ; i < count ; i++)
-		{
-			
-		}
+		*/
 		
+		int columns[] = {0};
 		adapter = new adapter2(this, arrays, columns);
 		lst = (ListView) findViewById(R.id.lst);
 		lst.setAdapter(adapter);
@@ -57,19 +55,22 @@ public class MainActivity extends Activity
 		btnNext.setOnClickListener(clickNext);
 	}
 
-	OnClickListener clickBack = new OnClickListener() 
-	{
-		@Override
-		public void onClick(View v) 
-		{
-			
-		}
-	};
 	OnClickListener clickNext = new OnClickListener() 
 	{
 		@Override
 		public void onClick(View v) 
 		{
+			adapter = new adapter2(MainActivity.this, arrays, new int[]{1});
+			lst.setAdapter(adapter);
+		}
+	};
+	
+	OnClickListener clickBack = new OnClickListener() 
+	{
+		@Override
+		public void onClick(View v) 
+		{
+			adapter = new adapter2(MainActivity.this, arrays, new int[]{0});
 			lst.setAdapter(adapter);
 		}
 	};
