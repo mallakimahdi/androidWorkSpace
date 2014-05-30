@@ -18,7 +18,6 @@ public class MainActivity extends Activity
 	ListView lst;
 	Button btnBack ,btnNext;
 	adapter2 adapter;
-	
 	ArrayList<struct2> arrays;
 	
 	@Override
