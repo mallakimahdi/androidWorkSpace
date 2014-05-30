@@ -10,6 +10,7 @@ public class syncronizedBuffer implements Buffer
 	private final Condition canWrite = accessLock.newCondition();
 	private final Condition canRead = accessLock.newCondition();
 	private ArrayBlockingQueue<Integer> buffer;
+	
 	private boolean occoupied = false;
 	
 	public syncronizedBuffer() 
