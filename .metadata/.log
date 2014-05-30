@@ -423,3 +423,13 @@ org.eclipse.jgit.errors.TransportException: Nothing to push.
 
 !ENTRY org.eclipse.egit.ui 4 0 2014-05-30 10:07:34.017
 !MESSAGE Can't connect to any repository: https://github.com/mallakimahdi/androidWorkSpace.git (Nothing to push.)
+!SESSION 2014-05-30 10:16:12.667 -----------------------------------------------
+eclipse.buildId=v22.3.0-887826
+java.version=1.7.0_55
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product com.android.ide.eclipse.adt.package.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product com.android.ide.eclipse.adt.package.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2014-05-30 10:16:14.185
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
