@@ -1,0 +1,55 @@
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+
+public class syncronizedBuffer implements Buffer
+{
+	private final Lock accessLock = new ReentrantLock();
+	private final Condition canWrite = accessLock.newCondition();
+	private final Condition canRead = accessLock.newCondition();
+	private ArrayBlockingQueue<Integer> buffer;
+	private boolean occoupied = false;
+	
+	public syncronizedBuffer() 
+	{
+		buffer = new ArrayBlockingQueue<>(11);
+	}
+
+	@Override
+	public void set(int value) 
+	{
+		accessLock.lock();
+		
+		try 
+		{
+			while(occoupied)
+			{
+				System.out.println("thread waiting for unlock");
+				canWrite.await();
+			}
+			
+			buffer.put(value);
+		} 
+		catch (InterruptedException e) 
+		{
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public int get() 
+	{
+		try 
+		{
+			return buffer.take();
+		} 
+		catch (InterruptedException e) 
+		{
+			e.printStackTrace();
+		}
+		
+		return -1;
+	}
+}

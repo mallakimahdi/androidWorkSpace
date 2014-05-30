@@ -1,0 +1,26 @@
+import java.util.concurrent.ArrayBlockingQueue;
+
+
+public class syncronizedBuffer implements Buffer
+{
+	
+	private ArrayBlockingQueue<Integer> buffer;
+	
+	public syncronizedBuffer() 
+	{
+		buffer = new ArrayBlockingQueue<>(11);
+	}
+
+	@Override
+	public void set(int value) 
+	{
+		buffer.put(value);
+	}
+
+	@Override
+	public int get() 
+	{
+		return 0;
+	}
+	
+}

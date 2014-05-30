@@ -1,0 +1,43 @@
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+
+public class syncronizedBuffer implements Buffer
+{
+	private final Lock accessLock = new ReentrantLock();
+	private ArrayBlockingQueue<Integer> buffer;
+	
+	public syncronizedBuffer() 
+	{
+		buffer = new ArrayBlockingQueue<>(11);
+	}
+
+	@Override
+	public void set(int value) 
+	{
+		try 
+		{
+			buffer.put(value);
+		} 
+		catch (InterruptedException e) 
+		{
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public int get() 
+	{
+		try 
+		{
+			return buffer.take();
+		} 
+		catch (InterruptedException e) 
+		{
+			e.printStackTrace();
+		}
+		
+		return -1;
+	}
+}
