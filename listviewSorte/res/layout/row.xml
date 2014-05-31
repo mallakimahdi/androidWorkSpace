@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+    
+    <TextView 
+        android:id="@+id/txtId"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:text="text"
+        android:gravity="center_horizontal"
+        />
+    
+    <TextView 
+        android:id="@+id/txtVisitLat"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:text="text"
+        android:gravity="center_horizontal"
+        />
+    
+    <TextView 
+        android:id="@+id/txtVisitLong"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="text"
+        android:gravity="center_horizontal"
+        />
+    
+    <TextView 
+        android:id="@+id/txtisSend"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:text="text"
+        android:gravity="center_horizontal"
+        />
+    
+    <TextView 
+        android:id="@+id/txtisMasfa"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="text"
+        android:gravity="center_horizontal"
+        />
+    <!-- 
+    
+    <TextView 
+        android:id="@+id/txtDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="text"
+        android:gravity="center_horizontal"
+        />
+    
+    <TextView 
+        android:id="@+id/txtvisitLook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="text"
+        android:gravity="center_horizontal"
+        />
+    
+    <TextView 
+        android:id="@+id/txtisValid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="text"
+        android:gravity="center_horizontal"
+        />
+    
+    <TextView 
+        android:id="@+id/txtGpsDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="text"
+        android:gravity="center_horizontal"
+        />
+    
+    <TextView 
+        android:id="@+id/txtUrl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="text"
+        android:gravity="center_horizontal"
+        />
+        
+         -->
+	    
+</LinearLayout>
