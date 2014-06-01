@@ -1,6 +1,7 @@
 package com.example.frg2;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -22,6 +23,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class MainActivity extends Activity 
 {
@@ -29,9 +31,11 @@ public class MainActivity extends Activity
 	Button btnBack ,btnNext;
 	adapter2 adapter;
 	ArrayList<struct2> arrays;
-	ListIterator<PriorityQueue<Integer>> listiterator;
+	private static ListIterator<LinkedList<Integer>> listiterator;
 	Map<Integer, Integer> detailsOfColumn;
 	int currectPage;
+	TextView topTxtId;
+	private boolean[] clickSort;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 
@@ -41,6 +45,8 @@ public class MainActivity extends Activity
 		
 		btnBack = (Button) findViewById(R.id.btnBack);
 		btnNext = (Button) findViewById(R.id.btnNext);
+		lst = (ListView) findViewById(R.id.lst);
+		topTxtId = (TextView) findViewById(R.id.topTxtId);
 		
 		arrays = new ArrayList<struct2>();
 		for(int i = 0; i<100 ; i++)
@@ -48,18 +54,21 @@ public class MainActivity extends Activity
 			struct2 stru = new struct2();
 			stru.setId(i);
 			stru.setName("name"+i);
+			stru.setFamily("family"+i);
+			stru.setAddress("address"+i);
+			stru.setTell(i*30+12);
 			
 			arrays.add(stru);
 		}
 		
 		detailsOfColumn = new HashMap<Integer, Integer>();
-		detailsOfColumn.put(0, 50);
-		detailsOfColumn.put(1, 100);
-		/*
-		detailsOfColumn.put(2, 40);
-		detailsOfColumn.put(3, 80);
-		detailsOfColumn.put(4, 55);
-		*/
+		detailsOfColumn.put(0, 80);
+		detailsOfColumn.put(1, 210);
+		detailsOfColumn.put(2, 230);
+		detailsOfColumn.put(3, 200);
+		detailsOfColumn.put(4, 250);
+		clickSort = new boolean[5];
+		clickSort[0] = true;
 		
 		int sumOfAllColumns = 0;
 		for(int i=0 ; i< detailsOfColumn.size() ; i++)
@@ -69,16 +78,15 @@ public class MainActivity extends Activity
 		
 		DisplayMetrics metrics = new DisplayMetrics();
 		getWindowManager().getDefaultDisplay().getMetrics(metrics);
-		//float widthInches = metrics.widthPixels / metrics.xdpi;
 		
-		LinkedList<PriorityQueue<Integer>> queeParent = new LinkedList<PriorityQueue<Integer>>();
+		LinkedList<LinkedList<Integer>> queeParent = new LinkedList<LinkedList<Integer>>();
 		int counter = 0;
 		int sumParent = 0;
 		while(sumParent < sumOfAllColumns)
 		{
 			int sumChild = 0;
-			PriorityQueue<Integer> queeChild = new PriorityQueue<Integer>();
-			while(sumChild < metrics.widthPixels)
+			LinkedList<Integer> queeChild = new LinkedList<Integer>();
+			while(sumChild < 500)  //metrics.widthPixels
 			{
 				if(counter < detailsOfColumn.size())
 				{
@@ -95,11 +103,11 @@ public class MainActivity extends Activity
 			queeParent.add(queeChild);
 		}
 		
-		ListIterator<PriorityQueue<Integer>> listiterator = queeParent.listIterator();
+		listiterator = queeParent.listIterator();
 		
 		if(listiterator.hasNext())
 		{
-			PriorityQueue<Integer> obj = listiterator.next();
+			LinkedList<Integer> obj = listiterator.next();
 			Object[] arr = obj.toArray();
 			int[] arrToAdapter = new int[arr.length];
 			
@@ -109,12 +117,12 @@ public class MainActivity extends Activity
 			}
 			
 			adapter = new adapter2(this, arrays, arrToAdapter);
-			lst = (ListView) findViewById(R.id.lst);
 			lst.setAdapter(adapter);
 		}
 		
-		btnBack.setOnClickListener(clickBack);
 		btnNext.setOnClickListener(clickNext);
+		btnBack.setOnClickListener(clickBack);
+		topTxtId.setOnClickListener(clickTopTxtId);
 	}
 
 	OnClickListener clickNext = new OnClickListener() 
@@ -122,10 +130,9 @@ public class MainActivity extends Activity
 		@Override
 		public void onClick(View v) 
 		{
-			
 			if(listiterator.hasNext())
 			{
-				PriorityQueue<Integer> obj = listiterator.next();
+				LinkedList<Integer> obj = listiterator.next();
 				Object[] arr = obj.toArray();
 				int[] arrToAdapter = new int[arr.length];
 				
@@ -135,7 +142,6 @@ public class MainActivity extends Activity
 				}
 				
 				adapter = new adapter2(MainActivity.this, arrays, arrToAdapter);
-				lst = (ListView) findViewById(R.id.lst);
 				lst.setAdapter(adapter);
 			}
 			
@@ -149,7 +155,7 @@ public class MainActivity extends Activity
 		{
 			if(listiterator.hasPrevious())
 			{
-				PriorityQueue<Integer> obj = listiterator.previous();
+				LinkedList<Integer> obj = listiterator.previous();
 				Object[] arr = obj.toArray();
 				int[] arrToAdapter = new int[arr.length];
 				
@@ -159,10 +165,32 @@ public class MainActivity extends Activity
 				}
 				
 				adapter = new adapter2(MainActivity.this, arrays, arrToAdapter);
-				lst = (ListView) findViewById(R.id.lst);
 				lst.setAdapter(adapter);
 			}
 			
+		}
+	};
+	
+	OnClickListener clickTopTxtId = new OnClickListener() 
+	{
+		@Override
+		public void onClick(View v) 
+		{
+			if(clickSort[0])
+			{
+				Collections.sort(arrays, new Compare("Id"));
+				Collections.reverse(arrays);
+				
+				clickSort[0] = false;
+			}
+			else
+			{
+				Collections.sort(arrays, new Compare("Id"));
+				clickSort[0] = true;
+			}
+			
+			
+			adapter.notifyDataSetChanged();
 		}
 	};
 	

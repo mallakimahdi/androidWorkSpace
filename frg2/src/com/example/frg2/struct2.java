@@ -8,6 +8,7 @@ import java.util.Set;
 public class struct2 
 {
 	private Map<String, Object> mapObj;
+	private String[] keys = {"id","name","family","address","tell"};
 	
 	public struct2() 
 	{
@@ -16,52 +17,54 @@ public class struct2
 	
 	public void setId(int id)
 	{
-		this.mapObj.put("id", id);
+		this.mapObj.put(keys[0], id);
 	}
-	
-	public int getId()
+	public Integer getId()
 	{
-		return (Integer) this.mapObj.get("id");
+		return (Integer) this.mapObj.get(keys[0]);
 	}
-	
 	
 	public void setName(String name)
 	{
-		this.mapObj.put("name", name);
+		this.mapObj.put(keys[1], name);
 	}
-	
 	public String getName()
 	{
-		return (String) this.mapObj.get("name");
+		return (String) this.mapObj.get(keys[1]);
 	}
 	
-	public Map<String, Object> getMap()
+	public void setFamily(String family)
 	{
-		return this.mapObj;
+		this.mapObj.put(keys[2], family);
+	}
+	public String getFamily()
+	{
+		return (String) this.mapObj.get(keys[2]);
 	}
 	
-	public int getCount()
+	public void setAddress(String address)
 	{
-		return mapObj.size();
+		this.mapObj.put(keys[3], address);
+	}
+	public String getAddress()
+	{
+		return (String) this.mapObj.get(keys[3]);
+	}
+	
+	public void setTell(int tell)
+	{
+		this.mapObj.put(keys[4], tell);
+	}
+	public int getTell()
+	{
+		return (Integer) this.mapObj.get(keys[4]);
 	}
 	
 	public Object[] getItemsArray()
 	{
-		Set<String> set = mapObj.keySet();
-		Object[] obj = new Object[set.size()];
-		Iterator<String> iterator = set.iterator();
-		String[] keys = new String[set.size()];
+		Object[] obj = new Object[keys.length];
 		
-		
-		for(int i=0 ; i<set.size() ; i++)
-		{
-			if(iterator.hasNext())
-			{
-				keys[i] = iterator.next(); 
-			}
-		}
-		
-		for(int i=0 ; i< keys.length ; i++)
+		for(int i=0 ; i<keys.length ; i++)
 		{
 			obj[i] = mapObj.get(keys[i]);
 		}

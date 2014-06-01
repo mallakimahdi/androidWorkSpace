@@ -2,6 +2,9 @@ package com.example.frg2;
 
 import java.util.ArrayList;
 import android.content.Context;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,18 +46,34 @@ public class adapter2 extends ArrayAdapter<struct2>
 			switch(columns[i])
 			{
 			case 0:
-				width = 50;
+				width = dipToPixels(80);
 				break;
 			case 1:
-				width = 120;
+				width = dipToPixels(210);
+				break;
+			case 2:
+				width = dipToPixels(230);
+				break;
+			case 3:
+				width = dipToPixels(200);
+				break;
+			case 4:
+				width = dipToPixels(250);
 				break;
 			}
 			txt.setWidth(width);
+			txt.setGravity(Gravity.CENTER);
 			linearlayout.addView(txt);
 		}
 				
 		
 		
 		return convertView;
+	}
+	
+	private int dipToPixels(float dipValue)
+	{
+		DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+		return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dipValue, metrics);
 	}
 }
