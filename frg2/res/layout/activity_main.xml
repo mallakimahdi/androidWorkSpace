@@ -5,7 +5,7 @@
     tools:context=".MainActivity" 
     android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
@@ -20,9 +20,10 @@
             android:id="@+id/btnNext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="next" />
+            android:text="next" 
+            android:layout_alignParentRight="true"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <ListView
         android:id="@+id/lst"
