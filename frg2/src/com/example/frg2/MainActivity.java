@@ -34,7 +34,7 @@ public class MainActivity extends Activity
 	private static ListIterator<LinkedList<Integer>> listiterator;
 	Map<Integer, Integer> detailsOfColumn;
 	int currectPage;
-	TextView topTxtId;
+	TextView topTxtId, TopTxtName;
 	private boolean[] clickSort;
 	
 	@Override
@@ -47,6 +47,7 @@ public class MainActivity extends Activity
 		btnNext = (Button) findViewById(R.id.btnNext);
 		lst = (ListView) findViewById(R.id.lst);
 		topTxtId = (TextView) findViewById(R.id.topTxtId);
+		TopTxtName = (TextView) findViewById(R.id.topTxtName);
 		
 		arrays = new ArrayList<struct2>();
 		for(int i = 0; i<100 ; i++)
@@ -123,6 +124,7 @@ public class MainActivity extends Activity
 		btnNext.setOnClickListener(clickNext);
 		btnBack.setOnClickListener(clickBack);
 		topTxtId.setOnClickListener(clickTopTxtId);
+		TopTxtName.setOnClickListener(clickTopTxtName);
 	}
 
 	OnClickListener clickNext = new OnClickListener() 
@@ -189,8 +191,27 @@ public class MainActivity extends Activity
 				clickSort[0] = true;
 			}
 			
-			
 			adapter.notifyDataSetChanged();
+		}
+	};
+	
+	OnClickListener clickTopTxtName = new OnClickListener() 
+	{
+		@Override
+		public void onClick(View v) 
+		{
+			if(clickSort[0])
+			{
+				Collections.sort(arrays, new Compare("Name"));
+				Collections.reverse(arrays);
+				
+				clickSort[0] = false;
+			}
+			else
+			{
+				Collections.sort(arrays, new Compare("Name"));
+				clickSort[0] = true;
+			}
 		}
 	};
 	

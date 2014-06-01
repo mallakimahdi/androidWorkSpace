@@ -17,8 +17,9 @@ public class Compare implements Comparator<struct2>
 		if(compare.equals("Id"))
 			return arg0.getId().compareTo(arg1.getId());
 			
-		else if(compare.equals("IsSend"))
+		else if(compare.equals("Name"))
 			return arg0.getName().compareTo(arg1.getName());
+		
 		else
 		{
 			return 0;
