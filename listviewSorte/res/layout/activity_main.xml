@@ -89,8 +89,8 @@
                 android:id="@+id/columnCalender"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/shape_of_row"
                 android:gravity="center"
+                android:background="@drawable/shape_of_row"
                 android:text="date" />
 
             <ImageView

@@ -37,7 +37,7 @@ public class MainActivity extends Activity
         imageSortId = (ImageView) findViewById(R.id.imageSortId);
         imageSortDate = (ImageView) findViewById(R.id.imageSortCalender);
         
-        for(int i=0 ; i<100 ; i++)
+        for(int i=0 ; i<10000 ; i++)
         {
         	struct stru = new struct();
         	
