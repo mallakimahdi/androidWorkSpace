@@ -1,20 +1,16 @@
 package com.example.listviewsorte;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.List;
+import java.util.GregorianCalendar;
 import java.util.Random;
 import android.view.View.OnClickListener;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends Activity 
 {
@@ -22,10 +18,11 @@ public class MainActivity extends Activity
 	ArrayList<struct> arrays;
 	private Random random;
 	private TextView columnId;
-	private TextView columnIsSend;
-	private TextView columnVisitLat;
+	private TextView columnCalender;
 	private Adapter adapter;
-	private boolean[] clickedSort;
+	private boolean isSortedById = true;
+    private boolean isSortedByDate = false;
+    private ImageView imageSortId, imageSortDate;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) 
@@ -36,11 +33,9 @@ public class MainActivity extends Activity
         random = new Random();
         arrays = new ArrayList<struct>();
         columnId = (TextView) findViewById(R.id.columnId);
-        columnIsSend = (TextView) findViewById(R.id.columnisSend);
-        columnVisitLat = (TextView) findViewById(R.id.columnVisitLat);
-        
-        clickedSort = new boolean[10];
-        clickedSort[0] = true;
+        columnCalender = (TextView) findViewById(R.id.columnCalender);
+        imageSortId = (ImageView) findViewById(R.id.imageSortId);
+        imageSortDate = (ImageView) findViewById(R.id.imageSortCalender);
         
         for(int i=0 ; i<100 ; i++)
         {
@@ -52,6 +47,13 @@ public class MainActivity extends Activity
         	stru.setSend(random.nextBoolean() ? 1 : 0);
         	stru.setMasfa(random.nextBoolean());
         	
+        	GregorianCalendar gc = new GregorianCalendar();
+        	
+        	gc.set(gc.YEAR, randBetween(2003, 2014));
+        	gc.set(gc.DAY_OF_YEAR, randBetween(1, gc.getActualMaximum(gc.DAY_OF_YEAR)));
+            
+        	stru.setGc(gc);
+        	
         	arrays.add(stru);
         }
         
@@ -60,9 +62,10 @@ public class MainActivity extends Activity
         lst = (ListView) findViewById(R.id.lst);
         lst.setAdapter(adapter);
         
+        imageSortId.setBackgroundResource(R.drawable.up);
+        
         columnId.setOnClickListener(clickColumnId);
-        columnIsSend.setOnClickListener(clickColumnIsSend);
-        columnVisitLat.setOnClickListener(clickColumnVisitLat);
+        columnCalender.setOnClickListener(clickColumnCalender);
     }   
     
     OnClickListener clickColumnId = new OnClickListener() 
@@ -70,59 +73,61 @@ public class MainActivity extends Activity
 		@Override
 		public void onClick(View arg0) 
 		{
-			if(clickedSort[0])
+			if(isSortedById)
 			{
 				Collections.sort(arrays, new Compare("Id"));
 				Collections.reverse(arrays);
-				Arrays.fill(clickedSort, false);
-				clickedSort[0] = false;
+				isSortedById = false;
+				isSortedByDate = false;
+				imageSortId.setVisibility(View.VISIBLE);
+				imageSortDate.setVisibility(View.INVISIBLE);
+				imageSortId.setBackgroundResource(R.drawable.down);
 			}
 			else
 			{
 				Collections.sort(arrays, new Compare("Id"));
-				clickedSort[0] = true;
+				isSortedById = true;
+				isSortedByDate = false;
+				imageSortId.setVisibility(View.VISIBLE);
+				imageSortDate.setVisibility(View.INVISIBLE);
+				imageSortId.setBackgroundResource(R.drawable.up);
 			}
 			
 			adapter.notifyDataSetChanged();
 		}
 	};
 	
-	OnClickListener clickColumnVisitLat = new OnClickListener() 
+	OnClickListener clickColumnCalender = new OnClickListener() 
 	{
 		@Override
-		public void onClick(View arg0) 
+		public void onClick(View v) 
 		{
-			if(clickedSort[1])
+			if(isSortedByDate)
 			{
-				
-			}
-			else
-			{
-				
-			}
-		}
-	};
-	
-	OnClickListener clickColumnIsSend = new OnClickListener() 
-	{
-		@Override
-		public void onClick(View arg0) 
-		{
-			if(clickedSort[3])
-			{
-				Collections.sort(arrays, new Compare("IsSend"));
+				Collections.sort(arrays, new Compare("date"));
 				Collections.reverse(arrays);
-				Arrays.fill(clickedSort, false);
-				clickedSort[3] = true;
+				imageSortDate.setVisibility(View.VISIBLE);
+				imageSortDate.setBackgroundResource(R.drawable.down);
+				imageSortId.setVisibility(View.INVISIBLE);
+				isSortedByDate = false;
+				isSortedById = false;
 			}
 			else
 			{
-				Collections.sort(arrays, new Compare("IsSend"));
-				Arrays.fill(clickedSort, false);
-				clickedSort[3] = true;
+				Collections.sort(arrays, new Compare("date"));
+				imageSortDate.setVisibility(View.VISIBLE);
+				imageSortDate.setBackgroundResource(R.drawable.up);
+				imageSortId.setVisibility(View.INVISIBLE);
+				isSortedByDate = true;
+				isSortedById = false;
 			}
 			
 			adapter.notifyDataSetChanged();
 		}
 	};
+	
+	private int randBetween(int start, int end) 
+	{
+        return start + (int)Math.round(Math.random() * (end - start));
+    }
 }

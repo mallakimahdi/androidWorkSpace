@@ -36,6 +36,8 @@ public class MainActivity extends Activity
 	int currectPage;
 	TextView topTxtId, TopTxtName;
 	private boolean[] clickSort;
+	private boolean nextWasCalled = false;
+	private boolean previousWasCalled = false;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 
@@ -87,7 +89,7 @@ public class MainActivity extends Activity
 		{
 			int sumChild = 0;
 			LinkedList<Integer> queeChild = new LinkedList<Integer>();
-			while(sumChild < 500)  //metrics.widthPixels
+			while(sumChild < 700)  //metrics.widthPixels
 			{
 				if(counter < detailsOfColumn.size())
 				{
@@ -134,6 +136,13 @@ public class MainActivity extends Activity
 		{
 			if(listiterator.hasNext())
 			{
+				nextWasCalled = true;
+				if(previousWasCalled)
+				{
+					previousWasCalled = false;
+					listiterator.next();
+				}
+				
 				LinkedList<Integer> obj = listiterator.next();
 				Object[] arr = obj.toArray();
 				int[] arrToAdapter = new int[arr.length];
@@ -157,6 +166,13 @@ public class MainActivity extends Activity
 		{
 			if(listiterator.hasPrevious())
 			{
+				if(nextWasCalled)
+				{
+					listiterator.previous();
+					nextWasCalled = false;
+				}
+				previousWasCalled = true;
+				
 				LinkedList<Integer> obj = listiterator.previous();
 				Object[] arr = obj.toArray();
 				int[] arrToAdapter = new int[arr.length];

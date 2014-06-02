@@ -46,32 +46,31 @@ public class adapter2 extends ArrayAdapter<struct2>
 			switch(columns[i])
 			{
 			case 0:
-				width = dipToPixels(80);
+				width = dipToPixels(context,80);
 				break;
 			case 1:
-				width = dipToPixels(210);
+				width = dipToPixels(context,210);
 				break;
 			case 2:
-				width = dipToPixels(230);
+				width = dipToPixels(context,230);
 				break;
 			case 3:
-				width = dipToPixels(200);
+				width = dipToPixels(context,200);
 				break;
 			case 4:
-				width = dipToPixels(250);
+				width = dipToPixels(context,250);
 				break;
 			}
 			txt.setWidth(width);
+			txt.setHeight(50);
 			txt.setGravity(Gravity.CENTER);
 			linearlayout.addView(txt);
 		}
-				
-		
 		
 		return convertView;
 	}
 	
-	private int dipToPixels(float dipValue)
+	public static int dipToPixels(Context context,float dipValue)
 	{
 		DisplayMetrics metrics = context.getResources().getDisplayMetrics();
 		return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dipValue, metrics);

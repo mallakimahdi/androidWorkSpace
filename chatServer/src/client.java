@@ -12,9 +12,14 @@ public class client
 		try 
 		{
 			Socket socketConnection = new Socket("127.0.0.1",3600);
+			socketConnection.getInetAddress().getHostName();
 			
 			ObjectOutputStream outputstream = new ObjectOutputStream(socketConnection.getOutputStream());
 			ObjectInputStream inputstream = new ObjectInputStream(socketConnection.getInputStream());
+			
+			outputstream.flush();
+			
+			outputstream.writeUTF("hello");
 		} 
 		catch (UnknownHostException e) 
 		{

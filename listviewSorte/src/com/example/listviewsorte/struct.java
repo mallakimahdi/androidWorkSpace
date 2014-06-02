@@ -1,5 +1,7 @@
 package com.example.listviewsorte;
 
+import java.util.GregorianCalendar;
+
 public class struct 
 {
 	private Integer id;
@@ -7,7 +9,25 @@ public class struct
 	private double visitLong;
 	private Integer isSend;
 	private boolean isMasfa;
+	private GregorianCalendar gc;
 	
+	
+	public GregorianCalendar getGc() {
+		return gc;
+	}
+
+	public void setGc(GregorianCalendar gc) {
+		this.gc = gc;
+	}
+
+	public Integer getIsSend() {
+		return isSend;
+	}
+
+	public void setIsSend(Integer isSend) {
+		this.isSend = isSend;
+	}
+
 	public double getVisitLat() {
 		return visitLat;
 	}

@@ -3,56 +3,110 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity" >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp" >
+        android:layout_height="50dp"
+        android:weightSum="5" >
 
-        <TextView
-            android:id="@+id/columnId"
-            android:layout_width="50dp"
+        <RelativeLayout
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:background="@android:color/holo_blue_bright"
-            android:gravity="center"
-            android:text="id" />
+            android:layout_weight="0.5" >
+
+            <TextView
+                android:id="@+id/columnId"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:background="@drawable/shape_of_row"
+                android:gravity="center"
+                android:text="id" />
+
+            <ImageView
+                android:id="@+id/imageSortId"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="5dp" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#E8E8E8" />
 
         <TextView
             android:id="@+id/columnVisitLat"
-            android:layout_width="50dp"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:background="@android:color/holo_blue_bright"
+            android:layout_weight="1"
+            android:background="@drawable/shape_of_row"
             android:gravity="center"
             android:text="VisitLat" />
 
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#E8E8E8" />
+
         <TextView
             android:id="@+id/columnVisitLong"
-            android:layout_width="80dp"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:background="@android:color/holo_blue_bright"
+            android:layout_weight="1"
+            android:background="@drawable/shape_of_row"
             android:gravity="center"
             android:text="VisitLong" />
 
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#E8E8E8" />
+
         <TextView
             android:id="@+id/columnisSend"
-            android:layout_width="50dp"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:background="@android:color/holo_blue_bright"
+            android:layout_weight="1"
+            android:background="@drawable/shape_of_row"
             android:gravity="center"
             android:text="isSend" />
 
-        <TextView
-            android:id="@+id/columnisMasfa"
-            android:layout_width="80dp"
+        <View
+            android:layout_width="1dp"
             android:layout_height="match_parent"
-            android:background="@android:color/holo_blue_bright"
-            android:gravity="center"
-            android:text="isMasfa" />
+            android:background="#E8E8E8" />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5" >
+
+            <TextView
+                android:id="@+id/columnCalender"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/shape_of_row"
+                android:gravity="center"
+                android:text="date" />
+
+            <ImageView
+                android:id="@+id/imageSortCalender"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="5dp" />
+        </RelativeLayout>
     </LinearLayout>
 
     <ListView
         android:id="@+id/lst"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_of_row" />
 
 </LinearLayout>
