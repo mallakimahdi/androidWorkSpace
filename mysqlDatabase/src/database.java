@@ -6,6 +6,8 @@ import java.sql.Statement;
 
 import javax.swing.JFrame;
 
+import com.mysql.jdbc.PreparedStatement;
+
 public class database extends JFrame
 {
 	public database() 
@@ -22,7 +24,7 @@ public class database extends JFrame
 			ResultSet resultset = statement.executeQuery("select * from tbl1");
 			java.sql.ResultSetMetaData metadata = resultset.getMetaData();
 			
-			
+			java.sql.PreparedStatement authorBook = connection.prepareStatement("");
 		} 
 		catch (SQLException e) 
 		{
