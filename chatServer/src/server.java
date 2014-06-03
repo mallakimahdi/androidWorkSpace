@@ -1,3 +1,6 @@
+import java.awt.BorderLayout;
+import java.awt.Button;
+import java.awt.Label;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -8,6 +11,9 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
 
 
 public class server 
@@ -22,6 +28,19 @@ public class server
 	private final static int PLAYER_Y = 1;
 	private ServerSocket socket;
 	private String[] board = new String[9];
+
+	public static void main(String[] args)
+	{
+		JFrame jfram = new JFrame();
+		Button btn = new Button("btn");
+		jfram.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		jfram.setSize(200, 100);
+		JButton jbu = new JButton();
+		jbu.setText("text on button");
+		Label lable = new Label("lable");
+		jfram.getContentPane().add(jbu , BorderLayout.SOUTH);
+		jfram.setVisible(true);
+	}
 	
 	public server() 
 	{

@@ -2,8 +2,6 @@ package com.example.listviewsorte;
 
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
-
-import android.R.color;
 import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;

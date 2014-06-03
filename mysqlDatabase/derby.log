@@ -1,0 +1,10 @@
+----------------------------------------------------------------
+Tue Jun 03 15:48:25 IRDT 2014:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instance a816c00e-0146-6173-9df0-0000069e83c8 
+on database directory /home/mahdi/mydb  with class loader sun.misc.Launcher$AppClassLoader@713c817 
+Loaded from file:/home/mahdi/program/androidWorkSpace/mysqlDatabase/src/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_51-b13
+user.dir=/home/mahdi/program/androidWorkSpace/mysqlDatabase
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
