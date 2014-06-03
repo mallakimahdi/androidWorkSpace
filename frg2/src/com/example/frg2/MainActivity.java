@@ -83,19 +83,22 @@ public class MainActivity extends Activity
 		getWindowManager().getDefaultDisplay().getMetrics(metrics);
 		
 		LinkedList<LinkedList<Integer>> queeParent = new LinkedList<LinkedList<Integer>>();
+		LinkedList<Integer> queeChild;
 		int counter = 0;
 		int sumParent = 0;
 		while(sumParent < sumOfAllColumns)
 		{
 			int sumChild = 0;
-			LinkedList<Integer> queeChild = new LinkedList<Integer>();
-			while(sumChild < 700)  //metrics.widthPixels
+			queeChild = new LinkedList<Integer>();
+			
+			while((metrics.widthPixels - sumChild) > detailsOfColumn.get(counter))  //for example: 700 in actual: metrics.widthPixels
 			{
 				if(counter < detailsOfColumn.size())
 				{
 					queeChild.add(detailsOfColumn.get(counter));
 					sumChild += detailsOfColumn.get(counter);
-					counter++;
+					if(counter != detailsOfColumn.size()-1)
+						counter++;
 				}
 				else
 				{
@@ -104,6 +107,7 @@ public class MainActivity extends Activity
 			}
 			sumParent += sumChild;
 			queeParent.add(queeChild);
+			queeChild = null;
 		}
 		
 		listiterator = queeParent.listIterator();

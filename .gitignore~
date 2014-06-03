@@ -1,2 +1,4 @@
 bin
-.metadata/
+.metadata
+*.class
+*/org.eclipse.jdt.core/*
