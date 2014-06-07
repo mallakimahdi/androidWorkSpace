@@ -62,7 +62,7 @@ public class MainActivity extends Activity
         lst = (ListView) findViewById(R.id.lst);
         lst.setAdapter(adapter);
         
-        imageSortId.setBackgroundResource(R.drawable.up);
+        imageSortId.setBackgroundResource(R.drawable.navigateup);
         
         columnId.setOnClickListener(clickColumnId);
         columnCalender.setOnClickListener(clickColumnCalender);
@@ -81,7 +81,7 @@ public class MainActivity extends Activity
 				isSortedByDate = false;
 				imageSortId.setVisibility(View.VISIBLE);
 				imageSortDate.setVisibility(View.INVISIBLE);
-				imageSortId.setBackgroundResource(R.drawable.down);
+				imageSortId.setBackgroundResource(R.drawable.navigatedown);
 			}
 			else
 			{
@@ -90,7 +90,7 @@ public class MainActivity extends Activity
 				isSortedByDate = false;
 				imageSortId.setVisibility(View.VISIBLE);
 				imageSortDate.setVisibility(View.INVISIBLE);
-				imageSortId.setBackgroundResource(R.drawable.up);
+				imageSortId.setBackgroundResource(R.drawable.navigateup);
 			}
 			
 			adapter.notifyDataSetChanged();
@@ -107,7 +107,7 @@ public class MainActivity extends Activity
 				Collections.sort(arrays, new Compare("date"));
 				Collections.reverse(arrays);
 				imageSortDate.setVisibility(View.VISIBLE);
-				imageSortDate.setBackgroundResource(R.drawable.down);
+				imageSortDate.setBackgroundResource(R.drawable.navigatedown);
 				imageSortId.setVisibility(View.INVISIBLE);
 				isSortedByDate = false;
 				isSortedById = false;
@@ -116,7 +116,7 @@ public class MainActivity extends Activity
 			{
 				Collections.sort(arrays, new Compare("date"));
 				imageSortDate.setVisibility(View.VISIBLE);
-				imageSortDate.setBackgroundResource(R.drawable.up);
+				imageSortDate.setBackgroundResource(R.drawable.navigateup);
 				imageSortId.setVisibility(View.INVISIBLE);
 				isSortedByDate = true;
 				isSortedById = false;
