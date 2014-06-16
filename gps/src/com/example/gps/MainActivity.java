@@ -91,10 +91,12 @@ public class MainActivity extends Activity
 		public void onLocationChanged(Location location) 
 		{
 			structNoteList item = new structNoteList();
+			
 			item.setLatitude(location.getLatitude());
 			item.setLongitude(location.getLongitude());
 			item.setTime(sdf.format(calender.getTime()));
-			
+			 location.getAccuracy();
+			 location.getProvider();
 			items.add(item);
 			
 			adapter.notifyDataSetChanged();

@@ -45,8 +45,8 @@ import android.util.Log;
  * @see AlarmService
  * @see AlarmService_Alarm
  */
-public class LocationBroadcastService extends Service {
-    
+public class LocationBroadcastService extends Service 
+{
     private static final String TAG = "LocationBroadcastService"; 
 
     @Override
@@ -57,21 +57,26 @@ public class LocationBroadcastService extends Service {
         // separate thread because the service normally runs in the process's
         // main thread, which we don't want to block.
         new Thread(null, mTask, TAG).start();
+        
         // We want this service to continue running until it is explicitly
         // stopped, so return sticky.
         return START_STICKY;
     }
     
     @Override
-    public void onDestroy() {
-        if (LocationLibrary.showDebugOutput) Log.d(LocationLibraryConstants.TAG, TAG + ": onDestroy");
+    public void onDestroy() 
+    {
+        if (LocationLibrary.showDebugOutput) 
+        	Log.d(LocationLibraryConstants.TAG, TAG + ": onDestroy");
     }
     
     /**
      * The function that runs in our worker thread
      */
-    Runnable mTask = new Runnable() {
-        public void run() {
+    Runnable mTask = new Runnable() 
+    {
+        public void run() 
+        {
             boolean stopServiceOnCompletion = true;
 
             final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(LocationBroadcastService.this.getBaseContext());
@@ -100,16 +105,19 @@ public class LocationBroadcastService extends Service {
         }
     };
     
-    protected static void sendBroadcast(final Context context, final SharedPreferences prefs, final boolean isPeriodicBroadcast) {
+    protected static void sendBroadcast(final Context context, final SharedPreferences prefs, final boolean isPeriodicBroadcast) 
+    {
         final Intent locationIntent = new Intent(LocationLibrary.broadcastPrefix + (isPeriodicBroadcast ? LocationLibraryConstants.LOCATION_CHANGED_PERIODIC_BROADCAST_ACTION : LocationLibraryConstants.LOCATION_CHANGED_TICKER_BROADCAST_ACTION));
         final LocationInfo locationInfo = new LocationInfo(context);
         locationIntent.putExtra(LocationLibraryConstants.LOCATION_BROADCAST_EXTRA_LOCATIONINFO, locationInfo);
+        
         if (LocationLibrary.showDebugOutput) Log.d(LocationLibraryConstants.TAG, TAG + ": Broadcasting " + (isPeriodicBroadcast ? "periodic" : "latest") + " location update timed at " + LocationInfo.formatTimeAndDay(prefs.getLong(LocationLibraryConstants.SP_KEY_LAST_LOCATION_UPDATE_TIME, System.currentTimeMillis()), true));
         context.sendBroadcast(locationIntent, "android.permission.ACCESS_FINE_LOCATION");
     }
 
     @Override
-    public IBinder onBind(Intent intent) {
+    public IBinder onBind(Intent intent) 
+    {
         return mBinder;
     }
     
@@ -118,25 +126,31 @@ public class LocationBroadcastService extends Service {
      * @return true if the service should stay awake, false if not
      */
     @TargetApi(9)
-    public boolean forceLocationUpdate() {
+    public boolean forceLocationUpdate() 
+    {
         final LocationManager locationManager = (LocationManager) getApplicationContext().getSystemService(Context.LOCATION_SERVICE);
         final Criteria criteria = new Criteria();
         criteria.setAccuracy(Criteria.ACCURACY_COARSE);
 
-        if (LocationLibraryConstants.SUPPORTS_GINGERBREAD) {
+        if (LocationLibraryConstants.SUPPORTS_GINGERBREAD) 
+        {
             if (LocationLibrary.showDebugOutput) Log.d(LocationLibraryConstants.TAG, TAG + ": Force a single location update, as current location is beyond the oldest location permitted");
             // just request a single update. The passive provider will pick it up.
             final Intent receiver = new Intent(getApplicationContext(), PassiveLocationChangedReceiver.class).addCategory(LocationLibraryConstants.INTENT_CATEGORY_ONE_SHOT_UPDATE);
             final PendingIntent oneshotReceiver = PendingIntent.getBroadcast(getApplicationContext(), 0, receiver, PendingIntent.FLAG_UPDATE_CURRENT);
-            try {
+            
+            try 
+            {
                 locationManager.requestSingleUpdate(criteria, oneshotReceiver);
             }
-            catch (IllegalArgumentException ex) {
+            catch (IllegalArgumentException ex) 
+            {
                 // thrown if there are no providers, e.g. GPS is off
                 if (LocationLibrary.showDebugOutput) Log.w(LocationLibraryConstants.TAG, TAG + ": IllegalArgumentException during call to locationManager.requestSingleUpdate - probable cause is that all location providers are off. Details: " + ex.getMessage());
             }
         }
-        else { // pre-Gingerbread
+        else 
+        { // pre-Gingerbread
             if (LocationLibrary.showDebugOutput) Log.d(LocationLibraryConstants.TAG, TAG + ": Force location updates (pre-Gingerbread), as current location is beyond the oldest location permitted");
             // one-shot not available pre-Gingerbread, so start updates, and when one is received, stop updates.
             final String provider = locationManager.getBestProvider(criteria, true);
@@ -153,7 +167,8 @@ public class LocationBroadcastService extends Service {
     /**
      * Forces this service to be called after the given delay
      */
-    public static void forceDelayedServiceCall(final Context context, final int delayInSeconds) {
+    public static void forceDelayedServiceCall(final Context context, final int delayInSeconds) 
+    {
         final Intent serviceIntent = new Intent(context, LocationBroadcastService.class);
         final PendingIntent pIntent = PendingIntent.getService(context, LocationLibraryConstants.LOCATION_BROADCAST_REQUEST_CODE_SINGLE_SHOT, serviceIntent, PendingIntent.FLAG_ONE_SHOT);
         final AlarmManager alarm = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);

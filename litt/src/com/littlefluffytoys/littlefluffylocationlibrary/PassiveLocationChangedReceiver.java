@@ -46,10 +46,12 @@ public class PassiveLocationChangedReceiver extends BroadcastReceiver {
    * third party apps when the Activity is not visible. 
    */
   @Override
-  public void onReceive(Context context, Intent intent) {
+  public void onReceive(Context context, Intent intent) 
+  {
     String key = LocationManager.KEY_LOCATION_CHANGED;
     
-    if (intent.hasCategory(LocationLibraryConstants.INTENT_CATEGORY_ONE_SHOT_UPDATE)) {
+    if (intent.hasCategory(LocationLibraryConstants.INTENT_CATEGORY_ONE_SHOT_UPDATE)) 
+    {
         // it's a one-shot update from Gingerbread and higher
         if (LocationLibrary.showDebugOutput) Log.d(LocationLibraryConstants.TAG, TAG + ":onReceive: on-demand location update received");
 

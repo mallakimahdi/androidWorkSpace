@@ -10,6 +10,6 @@ public class app extends Application
 	public void onCreate() 
 	{
 		super.onCreate();
-		LocationLibrary.initialiseLibrary(getBaseContext(), "com.example.litt");
+		LocationLibrary.initialiseLibrary(getBaseContext(),1 * 60 *1000, 1000 ,"com.example.litt");
 	}
 }

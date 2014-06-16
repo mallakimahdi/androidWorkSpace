@@ -1,13 +1,14 @@
 package com.example.litt;
 
 import com.littlefluffytoys.littlefluffylocationlibrary.LocationInfo;
-
+import com.littlefluffytoys.littlefluffylocationlibrary.LocationLibrary;
+import com.littlefluffytoys.littlefluffylocationlibrary.LocationLibraryConstants;
 import android.app.Activity;
-import android.app.Fragment;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 public class MainActivity extends Activity 
 {
@@ -17,22 +18,26 @@ public class MainActivity extends Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		LocationInfo info = new LocationInfo(this);
-		Float lastLat = info.lastLat;
+		LocationLibrary.forceLocationUpdate(this);
+		
 	}
 	
-	public static class PlaceholderFragment extends Fragment {
-
-		public PlaceholderFragment() {
-		}
-
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_main, container,
-					false);
-			return rootView;
-		}
+	@Override
+	protected void onResume() 
+	{
+		super.onResume();
+		final IntentFilter intFilter = new IntentFilter(LocationLibraryConstants.getLocationChangedPeriodicBroadcastAction());
+		registerReceiver(receiver, intFilter);
 	}
-
+	
+	private final BroadcastReceiver receiver = new BroadcastReceiver() 
+	{
+		@Override
+		public void onReceive(Context context, Intent intent) 
+		{
+			final LocationInfo locationinfo = (LocationInfo) intent.getSerializableExtra(LocationLibraryConstants.LOCATION_BROADCAST_EXTRA_LOCATIONINFO);
+			int m = locationinfo.lastAccuracy;
+		}
+	};
+	
 }
