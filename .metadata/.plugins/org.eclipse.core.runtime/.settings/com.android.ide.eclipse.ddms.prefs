@@ -31,7 +31,6 @@ logcat.view.colsize.TID=54
 logcat.view.colsize.Tag=97
 logcat.view.colsize.Text=710
 logcat.view.colsize.Time=156
-logcat.view.display.filters=false
 networkPanel.rxBytes=118
 networkPanel.rxPackets=118
 networkPanel.title=298

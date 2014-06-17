@@ -3,10 +3,8 @@ package com.example.xml;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.core.Persister;
-import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Environment;
@@ -29,15 +27,20 @@ public class MainActivity extends Activity
 		Serializer serializer = new Persister();
 		List<Server> server = new ArrayList<Server>();
 		int[] arrInt = new int[5];
+		ArrayList<String> str = new ArrayList<String>();
 		
 		for(int i=0; i<5 ; i++)
 		{
 			Server se = new Server(i, "server"+i);
 			arrInt[i] = i;
 			server.add(se);
+			str.add("item"+i);
 		}
 		
-		Struct struct = new Struct(1, "mahdi", server, arrInt);
+		CH1 ch1 = new CH1(str);
+		CH2 ch2 = new CH2(3, "hasan");
+		
+		Struct struct = new Struct(1, "mahdi", server, arrInt, ch1, ch2);
 		
 		File outputToXML = new File(path);
 		
