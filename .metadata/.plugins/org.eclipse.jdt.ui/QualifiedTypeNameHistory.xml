@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="android.os.Looper"/>
-<fullyQualifiedTypeName name="android.os.HandlerThread"/>
-<fullyQualifiedTypeName name="java.lang.Process"/>
-<fullyQualifiedTypeName name="android.os.Process"/>
-<fullyQualifiedTypeName name="com.example.service.sclass.ServiceHandler"/>
-<fullyQualifiedTypeName name="android.os.Message"/>
 <fullyQualifiedTypeName name="android.app.IntentService"/>
 <fullyQualifiedTypeName name="java.lang.Override"/>
 <fullyQualifiedTypeName name="android.content.BroadcastReceiver"/>
@@ -14,7 +8,6 @@
 <fullyQualifiedTypeName name="com.littlefluffytoys.littlefluffylocationlibrary.LocationLibrary"/>
 <fullyQualifiedTypeName name="com.littlefluffytoys.littlefluffylocationlibrary.LocationLibraryConstants"/>
 <fullyQualifiedTypeName name="java.lang.Boolean"/>
-<fullyQualifiedTypeName name="android.widget.Toast"/>
 <fullyQualifiedTypeName name="com.example.service.sclass"/>
 <fullyQualifiedTypeName name="java.lang.Thread"/>
 <fullyQualifiedTypeName name="java.lang.Runnable"/>
@@ -49,15 +42,22 @@
 <fullyQualifiedTypeName name="com.example.xml.CH1"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="com.example.xml.CH2"/>
-<fullyQualifiedTypeName name="com.example.servicebroadcastreceiver.parentApp"/>
 <fullyQualifiedTypeName name="android.os.Handler"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
-<fullyQualifiedTypeName name="java.util.Calendar"/>
 <fullyQualifiedTypeName name="android.app.AlertDialog"/>
 <fullyQualifiedTypeName name="android.support.v4.content.WakefulBroadcastReceiver"/>
 <fullyQualifiedTypeName name="android.app.AlarmManager"/>
 <fullyQualifiedTypeName name="android.app.PendingIntent"/>
-<fullyQualifiedTypeName name="android.content.Intent"/>
 <fullyQualifiedTypeName name="com.example.servicebroadcastreceiver.Service2"/>
 <fullyQualifiedTypeName name="android.content.Context"/>
+<fullyQualifiedTypeName name="time"/>
+<fullyQualifiedTypeName name="java.lang.IllegalArgumentException"/>
+<fullyQualifiedTypeName name="java.util.Calendar"/>
+<fullyQualifiedTypeName name="java.util.TimerTask"/>
+<fullyQualifiedTypeName name="com.example.servicebroadcastreceiver.timer"/>
+<fullyQualifiedTypeName name="com.example.servicebroadcastreceiver.Service1"/>
+<fullyQualifiedTypeName name="com.example.servicebroadcastreceiver.parentApp"/>
+<fullyQualifiedTypeName name="android.widget.Toast"/>
+<fullyQualifiedTypeName name="android.content.Intent"/>
+<fullyQualifiedTypeName name="com.example.servicebroadcastreceiver.MyReceiver"/>
 </qualifiedTypeNameHistroy>

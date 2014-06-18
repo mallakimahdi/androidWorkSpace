@@ -1,6 +1,8 @@
 package com.example.servicebroadcastreceiver;
 
 import java.util.Calendar;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import android.app.AlarmManager;
 import android.app.AlertDialog;
@@ -12,6 +14,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
+import android.os.Message;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -30,31 +33,32 @@ public class Service1 extends Service
 	{
 		super.onCreate();
 		
-		Calendar calenderStart = Calendar.getInstance();
-		calenderStart.setTimeInMillis(System.currentTimeMillis());
-		calenderStart.set(Calendar.HOUR_OF_DAY, 10);
-		calenderStart.set(Calendar.MINUTE, 43);
-		calenderStart.set(Calendar.SECOND, 00);
+		Calendar calenderStartService = Calendar.getInstance();
+		calenderStartService.setTimeInMillis(System.currentTimeMillis());
+		calenderStartService.set(Calendar.HOUR_OF_DAY, 18);
+		calenderStartService.set(Calendar.MINUTE, 18);
+		calenderStartService.set(Calendar.SECOND, 00);
 		
-		Calendar calenderStop = Calendar.getInstance();
-		calenderStop.setTimeInMillis(System.currentTimeMillis());
-		calenderStop.set(Calendar.HOUR_OF_DAY, 10);
-		calenderStop.set(Calendar.MINUTE, 44);
-		calenderStop.set(Calendar.SECOND, 00);
+		Calendar calenderStopService = Calendar.getInstance();
+		calenderStopService.setTimeInMillis(System.currentTimeMillis());
+		calenderStopService.set(Calendar.HOUR_OF_DAY, 18);
+		calenderStopService.set(Calendar.MINUTE, 19);
+		calenderStopService.set(Calendar.SECOND, 00);
 		
-		Intent intentStart = new Intent();
-		intentStart.setAction("Custom_Intent");
+		Intent intentStart = new Intent(this, MyReceiver.class);
 		intentStart.putExtra("act", 1);
-		PendingIntent piStart = PendingIntent.getBroadcast(getBaseContext(), 12345, intentStart, PendingIntent.FLAG_UPDATE_CURRENT);
+		PendingIntent piStart = PendingIntent.getBroadcast(getBaseContext(), 100, intentStart, PendingIntent.FLAG_ONE_SHOT);
 		
-		Intent intentStop = new Intent();
-		intentStop.setAction("Custom_Intent");
+		Intent intentStop = new Intent(this, MyReceiver.class);
 		intentStop.putExtra("act", 0);
-		PendingIntent piStop = PendingIntent.getBroadcast(getBaseContext(), 12346, intentStop, PendingIntent.FLAG_UPDATE_CURRENT);
+		PendingIntent piStop = PendingIntent.getBroadcast(getBaseContext(), 101, intentStop, PendingIntent.FLAG_ONE_SHOT);
 		
+		//alarm manager for manage
 		AlarmManager am = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
-		am.setInexactRepeating(AlarmManager.RTC_WAKEUP, calenderStart.getTimeInMillis(), AlarmManager.INTERVAL_DAY, piStart);
-		am.setInexactRepeating(AlarmManager.RTC_WAKEUP, calenderStop.getTimeInMillis(), AlarmManager.INTERVAL_DAY, piStop);
+		
+		//for start and stop Service2 ** this work Control in MyReceiver.class file by value 1 & 2
+		am.setInexactRepeating(AlarmManager.RTC_WAKEUP, calenderStartService.getTimeInMillis(), AlarmManager.INTERVAL_DAY, piStart);
+		am.setRepeating(AlarmManager.RTC_WAKEUP, calenderStopService.getTimeInMillis(), AlarmManager.INTERVAL_DAY, piStop);
 	}
 	
 	@Override
@@ -125,4 +129,15 @@ public class Service1 extends Service
 			}
 		});
 	}
+	
+	/*
+	@Override
+	public void onDestroy() {
+		if(timer != null)
+		{
+			timer.cancel();
+		}
+		super.onDestroy();
+	}
+	*/
 }

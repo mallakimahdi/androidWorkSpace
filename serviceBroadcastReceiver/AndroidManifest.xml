@@ -28,8 +28,7 @@
         
         <service 
             android:enabled="true"
-            android:name="com.example.servicebroadcastreceiver.Service1"
-            android:process=":remote">
+            android:name="com.example.servicebroadcastreceiver.Service1">
         </service>
         
         <service 
@@ -44,7 +43,6 @@
             
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <action android:name="Custom_Intent"/>
             </intent-filter>
             
         </receiver>

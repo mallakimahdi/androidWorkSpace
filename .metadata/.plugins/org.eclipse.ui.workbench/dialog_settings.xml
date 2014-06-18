@@ -22,6 +22,17 @@
 		<item value="10" key="DIALOG_Y_ORIGIN"/>
 		<item value="0" key="DIALOG_X_ORIGIN"/>
 	</section>
+	<section name="ShowViewDialog">
+		<item value="374" key="DIALOG_WIDTH"/>
+		<item value="com.android.ide.eclipse.ddms.views.DeviceView" key="ShowViewDialog.STORE_SELECTED_VIEW_ID"/>
+		<item value="91" key="DIALOG_Y_ORIGIN"/>
+		<item value="443" key="DIALOG_HEIGHT"/>
+		<item value="475" key="DIALOG_X_ORIGIN"/>
+		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		<list key="ShowViewDialog.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="com.android.ide.eclipse.ddms.views.category"/>
+		</list>
+	</section>
 	<section name="ImportExportAction">
 		<item value="org.eclipse.ui.wizards.import.ExternalProject" key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID"/>
 		<item value="org.eclipse.jdt.internal.ui.fatjarpackager.JarPackageWizard" key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID"/>
