@@ -1,6 +1,5 @@
 package com.example.listviewsorte;
 
-import java.util.Arrays;
 import java.util.Comparator;
 
 public class Compare implements Comparator<struct> 

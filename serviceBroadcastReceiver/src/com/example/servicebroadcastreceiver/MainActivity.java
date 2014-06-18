@@ -19,6 +19,5 @@ public class MainActivity extends ActionBarActivity
 		
 		Intent i = new Intent(this, Service1.class);
 		startService(i);
-		
 	}
 }

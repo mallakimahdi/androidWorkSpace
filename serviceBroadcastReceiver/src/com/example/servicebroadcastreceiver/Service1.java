@@ -3,6 +3,7 @@ package com.example.servicebroadcastreceiver;
 import java.util.Calendar;
 
 import android.app.AlarmManager;
+import android.app.AlertDialog;
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.app.Service;
@@ -29,6 +30,38 @@ public class Service1 extends Service
 	{
 		super.onCreate();
 		
+		Calendar calenderStart = Calendar.getInstance();
+		calenderStart.setTimeInMillis(System.currentTimeMillis());
+		calenderStart.set(Calendar.HOUR_OF_DAY, 10);
+		calenderStart.set(Calendar.MINUTE, 43);
+		calenderStart.set(Calendar.SECOND, 00);
+		
+		Calendar calenderStop = Calendar.getInstance();
+		calenderStop.setTimeInMillis(System.currentTimeMillis());
+		calenderStop.set(Calendar.HOUR_OF_DAY, 10);
+		calenderStop.set(Calendar.MINUTE, 44);
+		calenderStop.set(Calendar.SECOND, 00);
+		
+		Intent intentStart = new Intent();
+		intentStart.setAction("Custom_Intent");
+		intentStart.putExtra("act", 1);
+		PendingIntent piStart = PendingIntent.getBroadcast(getBaseContext(), 12345, intentStart, PendingIntent.FLAG_UPDATE_CURRENT);
+		
+		Intent intentStop = new Intent();
+		intentStop.setAction("Custom_Intent");
+		intentStop.putExtra("act", 0);
+		PendingIntent piStop = PendingIntent.getBroadcast(getBaseContext(), 12346, intentStop, PendingIntent.FLAG_UPDATE_CURRENT);
+		
+		AlarmManager am = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
+		am.setInexactRepeating(AlarmManager.RTC_WAKEUP, calenderStart.getTimeInMillis(), AlarmManager.INTERVAL_DAY, piStart);
+		am.setInexactRepeating(AlarmManager.RTC_WAKEUP, calenderStop.getTimeInMillis(), AlarmManager.INTERVAL_DAY, piStop);
+	}
+	
+	@Override
+	public int onStartCommand(Intent intent, int flags, int startId) 
+	{
+		Toast.makeText(getBaseContext(), "service 1 started", Toast.LENGTH_SHORT).show();
+		
 		Notification notification = new Notification(R.drawable.ic_launcher, "myapp", System.currentTimeMillis());
 		Intent notificationIntent = new Intent(this, MainActivity.class);
 		PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
@@ -36,24 +69,6 @@ public class Service1 extends Service
 		
 		startForeground(5481, notification);
 		
-		Calendar calender = Calendar.getInstance();
-		calender.setTimeInMillis(System.currentTimeMillis());
-		calender.set(Calendar.HOUR_OF_DAY, 8);
-		
-		Intent i = new Intent();
-		i.setAction("Custom_Intent");
-		PendingIntent pi = PendingIntent.getBroadcast(getBaseContext(), 12345, i , PendingIntent.FLAG_UPDATE_CURRENT);
-		AlarmManager am = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
-		//am.setInexactRepeating(am.ELAPSED_REALTIME_WAKEUP, 1000, 5 * 1000, pi);
-		am.setRepeating(am.RTC_WAKEUP, calender.getTimeInMillis(), am.INTERVAL_DAY, pi);
-		
-	}
-	
-	@Override
-	public int onStartCommand(Intent intent, int flags, int startId) 
-	{
-		Toast.makeText(getBaseContext(), "service 1 started", Toast.LENGTH_SHORT).show();
-		//new Thread(null, run, "my thread").start();
 		return START_STICKY;
 	}
 	

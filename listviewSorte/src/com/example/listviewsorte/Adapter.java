@@ -34,7 +34,7 @@ public class Adapter extends ArrayAdapter<struct>
 		if(position % 2 == 0)
 			linearRow.setBackgroundColor(Color.WHITE);
 		else
-			linearRow.setBackgroundColor(Color.parseColor("#E8E8E8"));
+			linearRow.setBackgroundColor(Color.parseColor("#7DFDFE"));
 		
 		TextView txtId = (TextView) convertView.findViewById(R.id.txtId);
 		TextView txtVisitLat = (TextView) convertView.findViewById(R.id.txtVisitLat);
