@@ -1,27 +1,25 @@
 package com.example.servicebroadcastreceiver;
 
-import java.util.Timer;
-import java.util.TimerTask;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
-import android.os.Message;
 import android.widget.Toast;
 
 public class MyReceiver extends BroadcastReceiver 
 {
-	private static Timer timer;
 	private int counter = 0;
 	private Context context;
+	private Handler handler;
+	private static boolean isCanceld;
 	
 	@Override
 	public void onReceive(Context context, Intent intent) 
 	{
-		timer = new Timer();
 		this.context = context;
+		handler = new Handler();
 		
-		Toast.makeText(parentApp.context, "broadcast received an intent", Toast.LENGTH_SHORT).show();
+ 		Toast.makeText(parentApp.context, "broadcast received an intent", Toast.LENGTH_SHORT).show();
 		
 		int receivedWork = intent.getExtras().getInt("act");
 		
@@ -30,54 +28,59 @@ public class MyReceiver extends BroadcastReceiver
 		case 1:
 			Intent i1 = new Intent(context, Service2.class);
 			context.startService(i1);
+			isCanceld = false;
 			doSomethingRepeatedly(context);
 			break;
 			
 		case 0:
 			Intent i2 = new Intent(context, Service2.class);
 			context.stopService(i2);
-			if(timer != null)
-			{
-				timer.cancel();
-				taskTo.cancel();
-				timer = null;
-				taskTo = null;
-			}
-				
+			isCanceld = true;
 			break;
 		}
 	}
 	
-	TimerTask taskTo = new TimerTask() 
-	{
-		
-		@Override
-		public void run() 
-		{
-			try 
-			{
-				updateUI.sendEmptyMessage(0);
-			} 
-			catch (Exception e) 
-			{
-				e.printStackTrace(); 
-			}
-		}
-		
-		private Handler updateUI = new Handler()
-		{
-			@Override
-			public void dispatchMessage(Message msg) 
-			{
-			    super.dispatchMessage(msg);
-			    Toast.makeText(context, ++counter +"", Toast.LENGTH_SHORT).show();
-			}
-		};
-	};
-	
 	public void doSomethingRepeatedly(final Context context) 
 	{
-		timer.scheduleAtFixedRate(taskTo, 0, 4 * 1000);
+		new Thread(new Runnable() 
+		{
+			@Override
+			public void run() 
+			{
+				while(true)
+				{
+					if(!isCanceld)
+					{
+						
+						try 
+						{
+							handler.post(new Runnable() 
+							{
+								@Override
+								public void run() 
+								{
+									Toast.makeText(context, ++counter +"", Toast.LENGTH_SHORT).show();
+								}
+							});
+							
+							Thread.sleep(4000);
+						} 
+						catch (InterruptedException e) 
+						{
+							e.printStackTrace();
+						}
+						catch (Exception e2) 
+						{
+							e2.printStackTrace();
+						}
+					}
+					else
+					{
+						break;
+					}
+				}
+			}
+		}).start();
 	}
 	
 	

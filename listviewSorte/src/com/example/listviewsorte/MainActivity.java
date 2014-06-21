@@ -7,6 +7,10 @@ import java.util.Random;
 import android.view.View.OnClickListener;
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.FragmentManager;
+import android.content.Context;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -36,36 +40,28 @@ public class MainActivity extends Activity
         columnCalender = (TextView) findViewById(R.id.columnCalender);
         imageSortId = (ImageView) findViewById(R.id.imageSortId);
         imageSortDate = (ImageView) findViewById(R.id.imageSortCalender);
-        
-        for(int i=0 ; i<10000 ; i++)
+       
+        if(IsTablet(this))
         {
-        	struct stru = new struct();
-        	
-        	stru.setId(i);
-        	stru.setVisitLat((int) (random.nextDouble()*1000));
-        	stru.setVisitLong((int) (random.nextDouble()*1000));
-        	stru.setSend(random.nextBoolean() ? 1 : 0);
-        	stru.setMasfa(random.nextBoolean());
-        	
-        	GregorianCalendar gc = new GregorianCalendar();
-        	
-        	gc.set(gc.YEAR, randBetween(2003, 2014));
-        	gc.set(gc.DAY_OF_YEAR, randBetween(1, gc.getActualMaximum(gc.DAY_OF_YEAR)));
-            
-        	stru.setGc(gc);
-        	
-        	arrays.add(stru);
+        	setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); 
+        }
+        else
+        {
+        	setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); 
         }
         
-        adapter = new Adapter(this, arrays);
+        FragmentManager fm = getFragmentManager();
+        if(fm.findFragmentById(android.R.id.content) == null)
+        {
+        	myFragment list = new myFragment();
+        	fm.beginTransaction().add(android.R.id.content, list).commit();
+        }
         
-        lst = (ListView) findViewById(R.id.lst);
-        lst.setAdapter(adapter);
-        
+        /*
         imageSortId.setBackgroundResource(R.drawable.navigateup);
-        
         columnId.setOnClickListener(clickColumnId);
         columnCalender.setOnClickListener(clickColumnCalender);
+        */
     }   
     
     OnClickListener clickColumnId = new OnClickListener() 
@@ -126,8 +122,9 @@ public class MainActivity extends Activity
 		}
 	};
 	
-	private int randBetween(int start, int end) 
+	private static boolean IsTablet(Context context)
 	{
-        return start + (int)Math.round(Math.random() * (end - start));
-    }
+		return (context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK)
+		        >= Configuration.SCREENLAYOUT_SIZE_LARGE;
+	}
 }

@@ -36,23 +36,30 @@ public class Adapter extends ArrayAdapter<struct>
 		else
 			linearRow.setBackgroundColor(Color.parseColor("#E8E8E8"));
 		
-		TextView txtId = (TextView) convertView.findViewById(R.id.txtId);
-		TextView txtVisitLat = (TextView) convertView.findViewById(R.id.txtVisitLat);
-		TextView txtVisitLong = (TextView) convertView.findViewById(R.id.txtVisitLong);
-		TextView txtIsSend = (TextView) convertView.findViewById(R.id.txtisSend);
-		TextView txtIsMasfa = (TextView) convertView.findViewById(R.id.txtCalender);
-		
-		int mount = item.getGc().get(GregorianCalendar.MONTH);
-		int day = item.getGc().get(GregorianCalendar.DAY_OF_MONTH);
-		
-		txtId.setText(item.getId()+"");
-		txtVisitLat.setText(item.getVisitLat()+"");
-		txtVisitLong.setText(item.getVisitLong()+"");
-		txtIsSend.setText(item.isSend()+"");
-		txtIsMasfa.setText(item.getGc().get(GregorianCalendar.YEAR) + " - "
-							+ ((mount < 10) ? "0" : "") + mount + " - "
-							+ ((day < 10) ? "0" : "") + day);
-		
-		return convertView;
+		if(parentApp.isTablet)
+		{
+			TextView txtId = (TextView) convertView.findViewById(R.id.txtId);
+			TextView txtVisitLat = (TextView) convertView.findViewById(R.id.txtVisitLat);
+			TextView txtVisitLong = (TextView) convertView.findViewById(R.id.txtVisitLong);
+			TextView txtIsSend = (TextView) convertView.findViewById(R.id.txtisSend);
+			TextView txtIsMasfa = (TextView) convertView.findViewById(R.id.txtCalender);
+			
+			int mount = item.getGc().get(GregorianCalendar.MONTH);
+			int day = item.getGc().get(GregorianCalendar.DAY_OF_MONTH);
+			
+			txtId.setText(item.getId()+"");
+			txtVisitLat.setText(item.getVisitLat()+"");
+			txtVisitLong.setText(item.getVisitLong()+"");
+			txtIsSend.setText(item.isSend()+"");
+			txtIsMasfa.setText(item.getGc().get(GregorianCalendar.YEAR) + " - "
+								+ ((mount < 10) ? "0" : "") + mount + " - "
+								+ ((day < 10) ? "0" : "") + day);
+			
+			return convertView;
+		}
+		else
+		{
+			return null;
+		}
 	}
 }

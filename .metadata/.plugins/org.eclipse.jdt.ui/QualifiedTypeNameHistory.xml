@@ -49,15 +49,15 @@
 <fullyQualifiedTypeName name="android.app.AlarmManager"/>
 <fullyQualifiedTypeName name="android.app.PendingIntent"/>
 <fullyQualifiedTypeName name="com.example.servicebroadcastreceiver.Service2"/>
-<fullyQualifiedTypeName name="android.content.Context"/>
 <fullyQualifiedTypeName name="time"/>
 <fullyQualifiedTypeName name="java.lang.IllegalArgumentException"/>
 <fullyQualifiedTypeName name="java.util.Calendar"/>
-<fullyQualifiedTypeName name="java.util.TimerTask"/>
 <fullyQualifiedTypeName name="com.example.servicebroadcastreceiver.timer"/>
-<fullyQualifiedTypeName name="com.example.servicebroadcastreceiver.Service1"/>
 <fullyQualifiedTypeName name="com.example.servicebroadcastreceiver.parentApp"/>
 <fullyQualifiedTypeName name="android.widget.Toast"/>
 <fullyQualifiedTypeName name="android.content.Intent"/>
 <fullyQualifiedTypeName name="com.example.servicebroadcastreceiver.MyReceiver"/>
+<fullyQualifiedTypeName name="java.util.TimerTask"/>
+<fullyQualifiedTypeName name="android.content.Context"/>
+<fullyQualifiedTypeName name="com.example.servicebroadcastreceiver.Service1"/>
 </qualifiedTypeNameHistroy>

@@ -20,7 +20,7 @@ import android.widget.Toast;
 
 public class Service1 extends Service 
 {
-	private boolean start = true;
+	public boolean cancel;
 	
 	@Override
 	public IBinder onBind(Intent intent) 
@@ -35,29 +35,29 @@ public class Service1 extends Service
 		
 		Calendar calenderStartService = Calendar.getInstance();
 		calenderStartService.setTimeInMillis(System.currentTimeMillis());
-		calenderStartService.set(Calendar.HOUR_OF_DAY, 18);
-		calenderStartService.set(Calendar.MINUTE, 18);
+		calenderStartService.set(Calendar.HOUR_OF_DAY, 17);
+		calenderStartService.set(Calendar.MINUTE, 04);
 		calenderStartService.set(Calendar.SECOND, 00);
 		
 		Calendar calenderStopService = Calendar.getInstance();
 		calenderStopService.setTimeInMillis(System.currentTimeMillis());
-		calenderStopService.set(Calendar.HOUR_OF_DAY, 18);
-		calenderStopService.set(Calendar.MINUTE, 19);
+		calenderStopService.set(Calendar.HOUR_OF_DAY, 17);
+		calenderStopService.set(Calendar.MINUTE, 05);
 		calenderStopService.set(Calendar.SECOND, 00);
 		
 		Intent intentStart = new Intent(this, MyReceiver.class);
 		intentStart.putExtra("act", 1);
-		PendingIntent piStart = PendingIntent.getBroadcast(getBaseContext(), 100, intentStart, PendingIntent.FLAG_ONE_SHOT);
+		PendingIntent piStart = PendingIntent.getBroadcast(getBaseContext(), 1000, intentStart, PendingIntent.FLAG_ONE_SHOT);
 		
 		Intent intentStop = new Intent(this, MyReceiver.class);
 		intentStop.putExtra("act", 0);
-		PendingIntent piStop = PendingIntent.getBroadcast(getBaseContext(), 101, intentStop, PendingIntent.FLAG_ONE_SHOT);
+		PendingIntent piStop = PendingIntent.getBroadcast(getBaseContext(), 1001, intentStop, PendingIntent.FLAG_ONE_SHOT);
 		
 		//alarm manager for manage
 		AlarmManager am = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
 		
 		//for start and stop Service2 ** this work Control in MyReceiver.class file by value 1 & 2
-		am.setInexactRepeating(AlarmManager.RTC_WAKEUP, calenderStartService.getTimeInMillis(), AlarmManager.INTERVAL_DAY, piStart);
+		am.setRepeating(AlarmManager.RTC_WAKEUP, calenderStartService.getTimeInMillis(), AlarmManager.INTERVAL_DAY, piStart);
 		am.setRepeating(AlarmManager.RTC_WAKEUP, calenderStopService.getTimeInMillis(), AlarmManager.INTERVAL_DAY, piStop);
 	}
 	
