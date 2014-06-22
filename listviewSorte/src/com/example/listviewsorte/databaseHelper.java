@@ -1,5 +1,6 @@
 package com.example.listviewsorte;
 
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -8,9 +9,9 @@ public class databaseHelper
 	Database db;
 	SQLiteDatabase database;
 	
-	public databaseHelper(Database db) 
+	public databaseHelper(Context context) 
 	{
-		this.db = db;
+		this.db = new Database(context);
 	}
 	
 	public SQLiteDatabase open()
@@ -19,14 +20,31 @@ public class databaseHelper
 		return this.database;
 	}
 	
-	public Cursor getAllDetaisl()
+	public Cursor getAllDetails()
 	{
-		return database.rawQuery("select * from ", null);
+		return database.rawQuery("select * from TrackingLog", null);
 	}
 	
 	
 	public void close()
 	{
 		db.close();
+	}
+	
+	public Cursor sortById(boolean asc)
+	{
+		String query;
+		
+		if(asc)
+			query = "select * from TrackingLog ORDER BY _id";
+		else
+			query = "select * from TrackingLog ORDER BY _id DESC";
+		
+		return database.rawQuery(query, null);
+	}
+	
+	public Cursor sortByDate(boolean asc)
+	{
+		return database.rawQuery("select * from TrackingLog ORDER BY date "+ asc != null ? "ASC" :"DESC", null);
 	}
 }

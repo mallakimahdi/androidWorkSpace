@@ -6,18 +6,25 @@
 		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
 	</section>
+	<section name="SaveAsDialogSettings">
+		<item value="613" key="DIALOG_WIDTH"/>
+		<item value="0" key="DIALOG_Y_ORIGIN"/>
+		<item value="596" key="DIALOG_HEIGHT"/>
+		<item value="356" key="DIALOG_X_ORIGIN"/>
+		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="CleanDialogSettings">
+		<item value="563" key="DIALOG_WIDTH"/>
+		<item value="162" key="DIALOG_Y_ORIGIN"/>
+		<item value="373" key="DIALOG_HEIGHT"/>
+		<item value="422" key="DIALOG_X_ORIGIN"/>
+		<item value="true" key="TOGGLE_SELECTED"/>
+	</section>
 	<section name="NewWizardAction">
 		<item value="com.android.ide.eclipse.adt.project.ImportProjectWizard.NewPrj" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
 		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
 			<item value="org.eclipse.ui.Basic"/>
 			<item value="com.android.ide.eclipse.wizards.category"/>
 		</list>
-	</section>
-	<section name="CleanDialogSettings">
-		<item value="563" key="DIALOG_WIDTH"/>
-		<item value="162" key="DIALOG_Y_ORIGIN"/>
-		<item value="422" key="DIALOG_X_ORIGIN"/>
-		<item value="373" key="DIALOG_HEIGHT"/>
-		<item value="true" key="TOGGLE_SELECTED"/>
 	</section>
 </section>

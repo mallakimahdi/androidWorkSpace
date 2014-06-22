@@ -5,8 +5,8 @@ import java.util.GregorianCalendar;
 public class struct 
 {
 	private Integer id;
-	private double visitLat;
-	private double visitLong;
+	private Double visitLat;
+	private Double visitLong;
 	private Integer isSend;
 	private boolean isMasfa;
 	private GregorianCalendar gc;
@@ -28,20 +28,20 @@ public class struct
 		this.isSend = isSend;
 	}
 
-	public double getVisitLat() {
+	public Double getVisitLat() {
 		return visitLat;
 	}
 
-	public void setVisitLat(double visitLat) {
-		this.visitLat = visitLat;
+	public void setVisitLat(int visitLat) {
+		this.visitLat = (double) visitLat;
 	}
 
-	public double getVisitLong() {
+	public Double getVisitLong() {
 		return visitLong;
 	}
 
-	public void setVisitLong(double visitLong) {
-		this.visitLong = visitLong;
+	public void setVisitLong(int visitLong) {
+		this.visitLong = (double) visitLong;
 	}
 
 	public Integer isSend() {

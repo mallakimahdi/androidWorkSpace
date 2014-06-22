@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:weightSum="5" >
+
+    <TextView
+        android:id="@+id/columnIdBroadcastLog"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/shape_of_row"
+        android:gravity="center"
+        android:text="id" />
+
+    <TextView
+        android:id="@+id/columnBroadcastType"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/shape_of_row"
+        android:gravity="center"
+        android:text="broadcast type" />
+
+    <TextView
+        android:id="@+id/columnBroadcastText"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/shape_of_row"
+        android:gravity="center"
+        android:text="broadcast text" />
+
+    <TextView
+        android:id="@+id/columnDateBroadcastLog"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/shape_of_row"
+        android:gravity="center"
+        android:text="broadcast log" />
+
+    <TextView
+        android:id="@+id/columnDescriptionBroadcastLog"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/shape_of_row"
+        android:gravity="center"
+        android:text="description" />
+
+</LinearLayout>
