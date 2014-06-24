@@ -1,16 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity" >
+    android:orientation="vertical" >
 
     <LinearLayout
         android:id="@+id/LinearRoot"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginBottom="1dp"
-        android:layout_marginTop="1dp"
+        android:orientation="horizontal"
         android:weightSum="10" >
 
         <RelativeLayout
@@ -22,6 +20,7 @@
                 android:id="@+id/columnId"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:background="@drawable/shape_of_row"
                 android:gravity="center"
                 android:text="id" />
@@ -35,11 +34,6 @@
                 android:layout_marginBottom="5dp" />
         </RelativeLayout>
 
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="#E8E8E8" />
-
         <TextView
             android:id="@+id/columnVisitLat"
             android:layout_width="0dp"
@@ -48,11 +42,6 @@
             android:background="@drawable/shape_of_row"
             android:gravity="center"
             android:text="VisitLat" />
-
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="#E8E8E8" />
 
         <TextView
             android:id="@+id/columnVisitLong"
@@ -63,11 +52,6 @@
             android:gravity="center"
             android:text="VisitLong" />
 
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="#E8E8E8" />
-
         <TextView
             android:id="@+id/columnisSend"
             android:layout_width="0dp"
@@ -76,11 +60,6 @@
             android:background="@drawable/shape_of_row"
             android:gravity="center"
             android:text="isSend" />
-
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="#E8E8E8" />
 
         <TextView
             android:id="@+id/columnIsMasfa"
@@ -91,11 +70,6 @@
             android:gravity="center"
             android:text="Is Masfa" />
 
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="#E8E8E8" />
-
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -105,8 +79,8 @@
                 android:id="@+id/columnCalender"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/shape_of_row"
                 android:gravity="center"
+                android:background="@drawable/shape_of_row"
                 android:text="date" />
 
             <ImageView
@@ -118,60 +92,40 @@
                 android:layout_marginBottom="5dp" />
         </RelativeLayout>
 
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="#E8E8E8" />
-
         <TextView
             android:id="@+id/columnIsVisitLoc"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/shape_of_row"
             android:gravity="center"
+            android:background="@drawable/shape_of_row"
             android:text="visit Loc" />
-
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="#E8E8E8" />
 
         <TextView
             android:id="@+id/columnIsValid"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/shape_of_row"
             android:gravity="center"
+            android:background="@drawable/shape_of_row"
             android:text="Is Valid" />
-
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="#E8E8E8" />
 
         <TextView
             android:id="@+id/columnGpsDate"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/shape_of_row"
             android:gravity="center"
+            android:background="@drawable/shape_of_row"
             android:text="Gps Date" />
-
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="#E8E8E8" />
 
         <TextView
             android:id="@+id/columnUrl"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/shape_of_row"
             android:gravity="center"
+            android:background="@drawable/shape_of_row"
             android:text="Url" />
     </LinearLayout>
 

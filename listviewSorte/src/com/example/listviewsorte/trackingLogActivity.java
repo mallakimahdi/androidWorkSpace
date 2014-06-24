@@ -1,5 +1,6 @@
 package com.example.listviewsorte;
 
+import fragmets.fragmentTrackingLog;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.Context;
@@ -20,7 +21,7 @@ public class trackingLogActivity extends Activity
     private boolean isSortedByDate = false;
     private ImageView imageSortId, imageSortDate;
     private LinearLayout linearRoot;
-    private myFragment lfm;
+    private fragmentTrackingLog lfm;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) 
@@ -34,21 +35,10 @@ public class trackingLogActivity extends Activity
         imageSortDate = (ImageView) findViewById(R.id.imageSortCalender);
         linearRoot = (LinearLayout) findViewById(R.id.LinearRoot);
        
-        if(IsTablet(this))
-        {
-        	setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); 
-        }
-        else
-        {
-        	linearRoot.setVisibility(View.GONE);
-        	setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); 
-        }
-        
-        
         FragmentManager fm = getFragmentManager();
         if(fm.findFragmentById(R.id.listFragment) == null)
         {
-        	lfm = new myFragment();
+        	lfm = new fragmentTrackingLog();
         	fm.beginTransaction().add(R.id.listFragment, lfm).commit();
         }
         
@@ -56,6 +46,8 @@ public class trackingLogActivity extends Activity
         columnId.setOnClickListener(clickColumnId);
         columnCalender.setOnClickListener(clickColumnCalender);
         
+        if(!G.isTablet)
+        	linearRoot.setVisibility(View.GONE);
     }   
     
     OnClickListener clickColumnId = new OnClickListener() 
@@ -71,7 +63,7 @@ public class trackingLogActivity extends Activity
 				imageSortDate.setVisibility(View.INVISIBLE);
 				imageSortId.setBackgroundResource(R.drawable.navigatedown);
 				
-				lfm.cursor = parentApp.dbHelper.sortById(true);
+				lfm.cursor = G.dbHelper.sortById(false);
 				lfm.adapter.swapCursor(lfm.cursor);
 			}
 			else
@@ -82,7 +74,7 @@ public class trackingLogActivity extends Activity
 				imageSortDate.setVisibility(View.INVISIBLE);
 				imageSortId.setBackgroundResource(R.drawable.navigateup);
 				
-				lfm.cursor = parentApp.dbHelper.sortById(false);
+				lfm.cursor = G.dbHelper.sortById(true);
 				lfm.adapter.swapCursor(lfm.cursor);
 			}
 		}
@@ -100,6 +92,9 @@ public class trackingLogActivity extends Activity
 				imageSortId.setVisibility(View.INVISIBLE);
 				isSortedByDate = false;
 				isSortedById = false;
+				
+				lfm.cursor = G.dbHelper.sortByDate(false);
+				lfm.adapter.swapCursor(lfm.cursor);
 			}
 			else
 			{
@@ -108,15 +103,13 @@ public class trackingLogActivity extends Activity
 				imageSortId.setVisibility(View.INVISIBLE);
 				isSortedByDate = true;
 				isSortedById = false;
+				
+				lfm.cursor = G.dbHelper.sortByDate(true);
+				lfm.adapter.swapCursor(lfm.cursor);
 			}
 			
 			lfm.adapter.notifyDataSetChanged();
 		}
 	};
 	
-	public static boolean IsTablet(Context context)
-	{
-		return (context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK)
-		        >= Configuration.SCREENLAYOUT_SIZE_LARGE;
-	}
 }

@@ -1,48 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<section name="FileSystemImportWizard">
-	</section>
 	<section name="org.eclipse.ui.internal.QuickAccess">
 		<item value="847" key="dialogWidth"/>
 		<item value="474" key="dialogHeight"/>
 		<list key="orderedProviders">
-			<item value="org.eclipse.e4.ui.parts"/>
 		</list>
 		<list key="textArray">
-			<item value="boo"/>
 		</list>
 		<list key="orderedElements">
-			<item value="org.eclipse.ui.views.BookmarkView"/>
 		</list>
 		<list key="textEntries">
-			<item value="1"/>
 		</list>
 	</section>
-	<section name="WorkbenchPreferenceDialogSettings">
-		<item value="10" key="DIALOG_Y_ORIGIN"/>
-		<item value="0" key="DIALOG_X_ORIGIN"/>
-	</section>
-	<section name="ShowViewDialog">
-		<item value="374" key="DIALOG_WIDTH"/>
-		<item value="com.android.ide.eclipse.ddms.views.DeviceView" key="ShowViewDialog.STORE_SELECTED_VIEW_ID"/>
-		<item value="91" key="DIALOG_Y_ORIGIN"/>
-		<item value="443" key="DIALOG_HEIGHT"/>
-		<item value="475" key="DIALOG_X_ORIGIN"/>
+	<section name="InstallationDialogSettings">
+		<item value="798" key="DIALOG_WIDTH"/>
+		<item value="-134" key="DIALOG_Y_ORIGIN"/>
+		<item value="716" key="DIALOG_HEIGHT"/>
+		<item value="-73" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
-		<list key="ShowViewDialog.STORE_EXPANDED_CATEGORIES_ID">
-			<item value="com.android.ide.eclipse.ddms.views.category"/>
-		</list>
-	</section>
-	<section name="ImportExportAction">
-		<item value="org.eclipse.ui.wizards.import.ExternalProject" key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID"/>
-		<item value="org.eclipse.jdt.internal.ui.fatjarpackager.JarPackageWizard" key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID"/>
-		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
-			<item value="org.eclipse.ui.Basic"/>
-			<item value="com.android.ide.eclipse.wizards.category"/>
-		</list>
-		<list key="ImportExportPage.STORE_EXPANDED_EXPORT_CATEGORIES">
-			<item value="org.eclipse.ui.Basic"/>
-			<item value="org.eclipse.jdt.ui.Java"/>
-		</list>
 	</section>
 </section>

@@ -1,19 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-  <item android:state_pressed="true" >
-    <shape>
-      <gradient
-       android:startColor="#E77A26"
-         android:endColor="#1DB38B"
-         android:angle="270" />
-    </shape>
-  </item>
-  <item android:state_activated="true">
-    <shape>
-      <gradient
-       android:startColor="#E77A26"
-         android:endColor="#EEFFEE"
-         android:angle="270" />
-    </shape>
+  <item>
+   	<shape android:shape="rectangle">
+         <stroke android:width="1dip" android:color="#909090" />
+  	</shape>
   </item>
 </selector>

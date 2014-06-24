@@ -3,69 +3,88 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    
-    <LinearLayout 
+
+    <LinearLayout
         android:id="@+id/LinearRootBroadcastLog"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:weightSum="5">
-        
-        <TextView 
-            android:id="@+id/txtIdBroadcastLog"
+        android:weightSum="5" >
+
+        <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="id"
-            android:background="@drawable/shape_of_row"
-            />
-        
-        <TextView 
+            android:layout_weight="1" >
+
+            <TextView
+                android:id="@+id/txtIdBroadcastLog"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/shape_of_row"
+                android:gravity="center"
+                android:text="id" />
+
+            <ImageView
+                android:id="@+id/imageSortIdBroadcastLog"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="5dp" />
+        </RelativeLayout>
+
+        <TextView
             android:id="@+id/txtBroadcastType"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center"
-            android:text="broadcast type"
             android:background="@drawable/shape_of_row"
-            />
-        
-        <TextView 
+            android:gravity="center"
+            android:text="broadcast type" />
+
+        <TextView
             android:id="@+id/txtBroadcastText"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center"
-            android:text="broadcast text"
             android:background="@drawable/shape_of_row"
-            />
-        
-        <TextView 
-            android:id="@+id/txtDateBroadcastLog"
+            android:gravity="center"
+            android:text="broadcast text" />
+
+        <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="broadcast log"
-            android:background="@drawable/shape_of_row"
-            />
-        
-        <TextView 
+            android:layout_weight="1" >
+
+            <TextView
+                android:id="@+id/txtDateBroadcastLog"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/shape_of_row"
+                android:gravity="center"
+                android:text="broadcast log" />
+
+            <ImageView
+                android:id="@+id/imageSortDateBroadcastLog"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="5dp" />
+        </RelativeLayout>
+
+        <TextView
             android:id="@+id/txtDescriptionBroadcastLog"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center"
-            android:text="description"
             android:background="@drawable/shape_of_row"
-            />
-        
+            android:gravity="center"
+            android:text="description" />
     </LinearLayout>
-    
-    <FrameLayout 
+
+    <FrameLayout
         android:id="@+id/fragmentBroadCast"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+        android:layout_height="match_parent" />
 
 </LinearLayout>

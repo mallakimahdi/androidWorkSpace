@@ -1,19 +1,14 @@
 package com.example.listviewsorte;
 
-import java.util.Collections;
 import android.view.View.OnClickListener;
 import android.os.Bundle;
 import android.app.Activity;
-import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 public class MainActivity extends Activity 
 {
@@ -47,5 +42,17 @@ public class MainActivity extends Activity
 				startActivity(i);
 			}
 		});
+		
+		if(IsTablet(this))
+        	setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); 
+        else
+        	setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+		
+	}
+	
+	public static boolean IsTablet(Context context)
+	{
+		return (context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK)
+		        >= Configuration.SCREENLAYOUT_SIZE_LARGE;
 	}
 }

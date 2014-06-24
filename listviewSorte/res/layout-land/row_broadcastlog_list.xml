@@ -10,8 +10,8 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="@drawable/shape_of_row"
         android:gravity="center"
+        android:background="@drawable/shape_row"
         android:text="id" />
 
     <TextView
@@ -19,7 +19,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="@drawable/shape_of_row"
+        android:background="@drawable/shape_row"
         android:gravity="center"
         android:text="broadcast type" />
 
@@ -28,7 +28,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="@drawable/shape_of_row"
+        android:background="@drawable/shape_row"
         android:gravity="center"
         android:text="broadcast text" />
 
@@ -37,7 +37,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="@drawable/shape_of_row"
+        android:background="@drawable/shape_row"
         android:gravity="center"
         android:text="broadcast log" />
 
@@ -46,7 +46,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="@drawable/shape_of_row"
+        android:background="@drawable/shape_row"
         android:gravity="center"
         android:text="description" />
 
