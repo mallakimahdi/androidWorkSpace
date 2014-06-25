@@ -4,6 +4,7 @@ import databases.dbHelperTrackingLog;
 import databases.dbhelperBroadcastLog;
 import android.app.Application;
 import android.content.Context;
+import android.content.res.Configuration;
 
 public class G extends Application 
 {
@@ -24,5 +25,12 @@ public class G extends Application
 		dbHelper = new dbHelperTrackingLog(getBaseContext());
 		dbHelperBroadcastLog = new dbhelperBroadcastLog(getBaseContext());
 		mContext = getBaseContext();
+	}
+	
+	public static boolean IsTablet(Context context)
+	{
+		return (context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK)
+		        >= Configuration.SCREENLAYOUT_SIZE_LARGE;
+		        
 	}
 }

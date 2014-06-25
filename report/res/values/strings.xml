@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">report</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    
+    <string name="crash_report_message">"اپلیکیشن دچار مشکل شد"</string>
+    <string name="crash_toast_text">"اپلیکیشن دچار مشکل شد"</string>
+    <string name="crash_dialog_text">"اپلیکیشن دچار مشکل شد"</string>
+    <string name="crash_dialog_title">"اپلیکیشن دچار مشکل شد"</string>
+    <string name="crash_dialog_comment_prompt">"اپلیکیشن دچار مشکل شد"</string>
+    <string name="crash_dialog_ok_toast">"اپلیکیشن دچار مشکل شد"</string>
+
+</resources>

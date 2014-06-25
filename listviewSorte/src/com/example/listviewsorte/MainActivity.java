@@ -54,5 +54,6 @@ public class MainActivity extends Activity
 	{
 		return (context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK)
 		        >= Configuration.SCREENLAYOUT_SIZE_LARGE;
+		        
 	}
 }
