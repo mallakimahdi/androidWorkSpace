@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -21,7 +20,9 @@ public class trackingLogActivity extends Activity
     private boolean isSortedByDate = false;
     private ImageView imageSortId, imageSortDate;
     private LinearLayout linearRoot;
-    private fragmentTrackingLog lfm;
+    private fragmentTrackingLog fragment;
+    private FragmentManager fm;
+    private Context mContext;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) 
@@ -34,20 +35,26 @@ public class trackingLogActivity extends Activity
         imageSortId = (ImageView) findViewById(R.id.imageSortId);
         imageSortDate = (ImageView) findViewById(R.id.imageSortCalender);
         linearRoot = (LinearLayout) findViewById(R.id.LinearRoot);
+        this.mContext = this;
        
-        FragmentManager fm = getFragmentManager();
-        if(fm.findFragmentById(R.id.listFragment) == null)
+        fm = getFragmentManager();
+        if(fm.findFragmentById(R.id.fragmentTrackingLog) == null)
         {
-        	lfm = new fragmentTrackingLog();
-        	fm.beginTransaction().add(R.id.listFragment, lfm).commit();
+        	fragment = new fragmentTrackingLog();
+        	fm.beginTransaction().add(R.id.fragmentTrackingLog, fragment).commit();
         }
         
         imageSortId.setBackgroundResource(R.drawable.navigateup);
         columnId.setOnClickListener(clickColumnId);
         columnCalender.setOnClickListener(clickColumnCalender);
         
-        if(!G.isTablet)
+        if(baseApplication.isTablet)
+        	setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        else
+        {
         	linearRoot.setVisibility(View.GONE);
+        	setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }
     }   
     
     OnClickListener clickColumnId = new OnClickListener() 
@@ -63,8 +70,10 @@ public class trackingLogActivity extends Activity
 				imageSortDate.setVisibility(View.INVISIBLE);
 				imageSortId.setBackgroundResource(R.drawable.navigatedown);
 				
-				lfm.cursor = G.dbHelper.sortById(false);
-				lfm.adapter.swapCursor(lfm.cursor);
+				fragment = (fragmentTrackingLog) fm.findFragmentById(R.id.fragmentTrackingLog);
+				
+				fragment.cursor = getObjects.getHelperDBTrakingLog(mContext).sortById(false);
+				fragment.adapter.swapCursor(fragment.cursor);
 			}
 			else
 			{
@@ -74,8 +83,8 @@ public class trackingLogActivity extends Activity
 				imageSortDate.setVisibility(View.INVISIBLE);
 				imageSortId.setBackgroundResource(R.drawable.navigateup);
 				
-				lfm.cursor = G.dbHelper.sortById(true);
-				lfm.adapter.swapCursor(lfm.cursor);
+				fragment.cursor = getObjects.getHelperDBTrakingLog(mContext).sortById(true);
+				fragment.adapter.swapCursor(fragment.cursor);
 			}
 		}
 	};
@@ -93,8 +102,8 @@ public class trackingLogActivity extends Activity
 				isSortedByDate = false;
 				isSortedById = false;
 				
-				lfm.cursor = G.dbHelper.sortByDate(false);
-				lfm.adapter.swapCursor(lfm.cursor);
+				fragment.cursor = getObjects.getHelperDBTrakingLog(mContext).sortByDate(false);
+				fragment.adapter.swapCursor(fragment.cursor);
 			}
 			else
 			{
@@ -104,11 +113,13 @@ public class trackingLogActivity extends Activity
 				isSortedByDate = true;
 				isSortedById = false;
 				
-				lfm.cursor = G.dbHelper.sortByDate(true);
-				lfm.adapter.swapCursor(lfm.cursor);
+				fragment = (fragmentTrackingLog) fm.findFragmentById(R.id.fragmentTrackingLog);
+				
+				fragment.cursor = getObjects.getHelperDBTrakingLog(mContext).sortByDate(true);
+				fragment.adapter.swapCursor(fragment.cursor);
 			}
 			
-			lfm.adapter.notifyDataSetChanged();
+			fragment.adapter.notifyDataSetChanged();
 		}
 	};
 	

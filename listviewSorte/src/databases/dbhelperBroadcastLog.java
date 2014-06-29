@@ -6,8 +6,8 @@ import android.database.sqlite.SQLiteDatabase;
 
 public class dbhelperBroadcastLog 
 {
-	DatabaseBroadcastLog db;
-	SQLiteDatabase database;
+	private DatabaseBroadcastLog db;
+	private SQLiteDatabase database;
 	
 	public dbhelperBroadcastLog(Context context) 
 	{

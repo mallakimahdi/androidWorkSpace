@@ -1,29 +1,26 @@
 package adapters;
 
 import com.example.listviewsorte.R;
-import com.example.listviewsorte.G;
-import com.example.listviewsorte.R.id;
-import com.example.listviewsorte.R.layout;
-
+import com.example.listviewsorte.baseApplication;
 import android.content.Context;
 import android.database.Cursor;
+import android.support.v4.widget.SimpleCursorAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
-public class adapterBroadcastLog extends adapterTrackingLog 
+public class adapterBroadcastLog extends SimpleCursorAdapter 
 {
 	private Cursor cursor;
 	private LayoutInflater inflater;
 	public static Context context;
 
-	public adapterBroadcastLog(Context context, int layout, Cursor c, String[] from, int[] to) 
+	public adapterBroadcastLog(Context context, int layout, Cursor cursor, String[] from, int[] to) 
 	{
-		super(context, layout, c, from, to);
-		this.cursor = c;
-		c.moveToFirst();
+		super(context, layout, cursor, from, to, 1);
+		this.cursor = cursor;
+		cursor.moveToFirst();
 		inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	}
 	
@@ -47,12 +44,20 @@ public class adapterBroadcastLog extends adapterTrackingLog
 		{
 			convertview = inflater.inflate(R.layout.row_broadcastlog_list, null);
 			holder = new ViewHolder();
+			
+			holder.tvId = (TextView) convertview.findViewById(R.id.tvIdBroadcastLog);
+			holder.tvBroadcastType = (TextView) convertview.findViewById(R.id.tvBroadcastType);
+			holder.tvBroadcastText = (TextView) convertview.findViewById(R.id.tvBroadcastText);
+			holder.tvDateBroadcastLog = (TextView) convertview.findViewById(R.id.tvDateBroadcastLog);
+			holder.tvDescripotion = (TextView) convertview.findViewById(R.id.tvDescriptionBroadcastLog);
+			
 			convertview.setTag(holder);
 		}
 		else
 		{
 			holder = (ViewHolder) convertview.getTag();
 		}
+		
 		holder.fill(cursor, convertview);
 		
 		return convertview;
@@ -60,30 +65,26 @@ public class adapterBroadcastLog extends adapterTrackingLog
 	
 	static class ViewHolder
 	{
+		public TextView tvId, tvBroadcastType, tvBroadcastText, 
+						tvDateBroadcastLog, tvDescripotion;
+		
 		public void fill(Cursor c, View view)
 		{
-			TextView txtId = (TextView) view.findViewById(R.id.columnIdBroadcastLog);
-			TextView txtBroadcastType = (TextView) view.findViewById(R.id.columnBroadcastType);
-			TextView txtBroadcastText = (TextView) view.findViewById(R.id.columnBroadcastText);
-			TextView txtDateBroadcastLog = (TextView) view.findViewById(R.id.columnDateBroadcastLog);
-			TextView txtDescripotion = (TextView) view.findViewById(R.id.columnDescriptionBroadcastLog);
-			
-			
-			if(G.isTablet)
+			if(baseApplication.isTablet)
 			{
-				txtId.setText(c.getInt(c.getColumnIndex("_id"))+"");
-				txtBroadcastType.setText(c.getDouble(c.getColumnIndex("BroadcastType"))+"");
-				txtBroadcastText.setText(c.getString(c.getColumnIndex("BroadcastText")));
-				txtDateBroadcastLog.setText(c.getString(c.getColumnIndex("Date")));
-				txtDescripotion.setText(c.getString(c.getColumnIndex("Description")));
+				tvId.setText(c.getInt(c.getColumnIndex("_id"))+"");
+				tvBroadcastType.setText(c.getDouble(c.getColumnIndex("BroadcastType"))+"");
+				tvBroadcastText.setText(c.getString(c.getColumnIndex("BroadcastText")));
+				tvDateBroadcastLog.setText(c.getString(c.getColumnIndex("Date")));
+				tvDescripotion.setText(c.getString(c.getColumnIndex("Description")));
 			}
 			else
 			{
-				txtId.setText("id: "+c.getInt(c.getColumnIndex("_id")));
-				txtBroadcastType.setText("type: "+c.getDouble(c.getColumnIndex("BroadcastType"))+"");
-				txtBroadcastText.setText("text: "+c.getString(c.getColumnIndex("BroadcastText")));
-				txtDateBroadcastLog.setText("date: "+c.getString(c.getColumnIndex("Date")));
-				txtDescripotion.setText("description: "+c.getString(c.getColumnIndex("Description")));
+				tvId.setText("id: "+c.getInt(c.getColumnIndex("_id")));
+				tvBroadcastType.setText("type: "+c.getDouble(c.getColumnIndex("BroadcastType"))+"");
+				tvBroadcastText.setText("text: "+c.getString(c.getColumnIndex("BroadcastText")));
+				tvDateBroadcastLog.setText("date: "+c.getString(c.getColumnIndex("Date")));
+				tvDescripotion.setText("description: "+c.getString(c.getColumnIndex("Description")));
 			}
 		}
 	}

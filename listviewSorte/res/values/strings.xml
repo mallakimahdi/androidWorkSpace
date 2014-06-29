@@ -4,5 +4,21 @@
     <string name="app_name">listviewSorte</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    
+    <string name="id">id</string>
+    <string name="broadcast_type">broadcast type</string>
+    <string name="broadcast_text">broadcast text</string>
+    <string name="broadcast_log">broadcast log</string>
+    <string name="description">description</string>
 
+    <string name="VisitLong">VisitLong</string>
+    <string name="VisitLat">VisitLat</string>
+    <string name="is_Send">Is Send</string>
+    <string name="Is_Masfa">Is Masfa</string>
+    <string name="date">date</string>
+    <string name="visit_Loc">visit Loc</string>
+    <string name="Is_Valid">Is Valid</string>
+    <string name="Gps_Date">Gps Date</string>
+    <string name="Url">Url</string>
+    
 </resources>

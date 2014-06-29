@@ -17,11 +17,13 @@ public class broadcastLogActivity extends Activity
 {
 	private LinearLayout linearRootBroadcastLog;
 	private fragmentBroadcastList fragment;
-	TextView txtColumnId;
-	TextView txtColumnDate;
-	ImageView imageSortId, imageSortDate;
-	boolean isSortedById = true;
-	boolean isSortByDate = false;
+	private TextView txtColumnId;
+	private TextView txtColumnDate;
+	private ImageView imageSortId, imageSortDate;
+	private boolean isSortedById = true;
+	private boolean isSortByDate = false;
+	private FragmentManager fm;
+	private Context mContext;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 
@@ -33,10 +35,11 @@ public class broadcastLogActivity extends Activity
 		txtColumnDate = (TextView) findViewById(R.id.txtDateBroadcastLog);
 		imageSortId = (ImageView) findViewById(R.id.imageSortIdBroadcastLog);
 		imageSortDate = (ImageView) findViewById(R.id.imageSortDateBroadcastLog);
+		mContext = this;
 		
 		linearRootBroadcastLog = (LinearLayout) findViewById(R.id.LinearRootBroadcastLog);
 		
-		if(IsTablet(this))
+		if(baseApplication.isTablet)
         	setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); 
         else
         {
@@ -44,10 +47,10 @@ public class broadcastLogActivity extends Activity
         	setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); 
         }
 		
-		FragmentManager fm = getFragmentManager();
+		fm = getFragmentManager();
 		if(fm.findFragmentById(R.id.fragmentBroadCast) == null)
 		{
-			fragment = new fragmentBroadcastList();
+			this.fragment = new fragmentBroadcastList();
 			fm.beginTransaction().add(R.id.fragmentBroadCast, fragment).commit();
 		}
 		
@@ -75,7 +78,9 @@ public class broadcastLogActivity extends Activity
 				imageSortDate.setVisibility(View.INVISIBLE);
 				imageSortId.setBackgroundResource(R.drawable.navigatedown);
 				
-				fragment.cursor = G.dbHelperBroadcastLog.sortById(false);
+				fragment = (fragmentBroadcastList) fm.findFragmentById(R.id.fragmentBroadCast);
+				
+				fragment.cursor = getObjects.getHelperDBBroadcastlog(mContext).sortById(false);
 				fragment.adapter.swapCursor(fragment.cursor);
 			}
 			else
@@ -86,7 +91,7 @@ public class broadcastLogActivity extends Activity
 				imageSortDate.setVisibility(View.INVISIBLE);
 				imageSortId.setBackgroundResource(R.drawable.navigateup);
 				
-				fragment.cursor = G.dbHelperBroadcastLog.sortById(true);
+				fragment.cursor = getObjects.getHelperDBBroadcastlog(mContext).sortById(true);
 				fragment.adapter.swapCursor(fragment.cursor);
 			}
 		}
@@ -105,7 +110,7 @@ public class broadcastLogActivity extends Activity
 				isSortByDate = false;
 				isSortedById = false;
 				
-				fragment.cursor = G.dbHelperBroadcastLog.sortByDate(false);
+				fragment.cursor = getObjects.getHelperDBBroadcastlog(mContext).sortByDate(false);
 				fragment.adapter.swapCursor(fragment.cursor);
 			}
 			else
@@ -116,7 +121,9 @@ public class broadcastLogActivity extends Activity
 				isSortByDate = true;
 				isSortedById = false;
 				
-				fragment.cursor = G.dbHelperBroadcastLog.sortByDate(true);
+				fragment = (fragmentBroadcastList) fm.findFragmentById(R.id.fragmentBroadCast);
+				
+				fragment.cursor = getObjects.getHelperDBBroadcastlog(mContext).sortByDate(true);
 				fragment.adapter.swapCursor(fragment.cursor);
 			}
 		}

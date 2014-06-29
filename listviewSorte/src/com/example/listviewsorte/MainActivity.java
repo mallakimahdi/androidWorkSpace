@@ -12,7 +12,7 @@ import android.widget.Button;
 
 public class MainActivity extends Activity 
 {
-	Button btnBroadcastLog, btnTrackingLog;
+	private Button btnBroadcastLog, btnTrackingLog;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 
@@ -54,6 +54,5 @@ public class MainActivity extends Activity
 	{
 		return (context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK)
 		        >= Configuration.SCREENLAYOUT_SIZE_LARGE;
-		        
 	}
 }

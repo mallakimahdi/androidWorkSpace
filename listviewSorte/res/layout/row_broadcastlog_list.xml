@@ -12,20 +12,20 @@
         android:weightSum="2" >
 
         <TextView
-            android:id="@+id/columnIdBroadcastLog"
+            android:id="@+id/tvIdBroadcastLog"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_vertical"
-            android:text="id" />
+            />
 
         <TextView
-            android:id="@+id/columnBroadcastType"
+            android:id="@+id/tvBroadcastType"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_vertical"
-            android:text="type" />
+            />
     </LinearLayout>
 
     <LinearLayout
@@ -35,20 +35,20 @@
         android:weightSum="2" >
 
         <TextView
-            android:id="@+id/columnBroadcastText"
+            android:id="@+id/tvBroadcastText"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_vertical"
-            android:text="text" />
+            />
 
         <TextView
-            android:id="@+id/columnDateBroadcastLog"
+            android:id="@+id/tvDateBroadcastLog"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
           	android:gravity="center_vertical"
-            android:text="date log" />
+            />
     </LinearLayout>
 
     <LinearLayout
@@ -58,12 +58,12 @@
         android:weightSum="2" >
 
         <TextView
-            android:id="@+id/columnDescriptionBroadcastLog"
+            android:id="@+id/tvDescriptionBroadcastLog"
             android:layout_width="0dp"
             android:layout_height="25dp"
             android:layout_weight="2"
             android:gravity="center_vertical"
-            android:text="description log" />
+            />
     </LinearLayout>
 
 </LinearLayout>

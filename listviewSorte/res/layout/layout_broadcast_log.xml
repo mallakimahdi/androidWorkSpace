@@ -13,7 +13,7 @@
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1" >
+            android:layout_weight="0.5" >
 
             <TextView
                 android:id="@+id/txtIdBroadcastLog"
@@ -21,7 +21,7 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/shape_of_row"
                 android:gravity="center"
-                android:text="id" />
+                android:text="@string/id" />
 
             <ImageView
                 android:id="@+id/imageSortIdBroadcastLog"
@@ -39,7 +39,7 @@
             android:layout_weight="1"
             android:background="@drawable/shape_of_row"
             android:gravity="center"
-            android:text="broadcast type" />
+            android:text="@string/broadcast_type" />
 
         <TextView
             android:id="@+id/txtBroadcastText"
@@ -48,7 +48,7 @@
             android:layout_weight="1"
             android:background="@drawable/shape_of_row"
             android:gravity="center"
-            android:text="broadcast text" />
+            android:text="@string/broadcast_text" />
 
         <RelativeLayout
             android:layout_width="0dp"
@@ -61,7 +61,7 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/shape_of_row"
                 android:gravity="center"
-                android:text="broadcast log" />
+                android:text="@string/broadcast_log" />
 
             <ImageView
                 android:id="@+id/imageSortDateBroadcastLog"
@@ -76,10 +76,10 @@
             android:id="@+id/txtDescriptionBroadcastLog"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="1.5"
             android:background="@drawable/shape_of_row"
             android:gravity="center"
-            android:text="description" />
+            android:text="@string/description" />
     </LinearLayout>
 
     <FrameLayout

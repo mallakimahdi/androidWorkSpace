@@ -14,10 +14,12 @@ public class DatabaseTrackingLog extends SQLiteOpenHelper
 	@Override
 	public void onCreate(SQLiteDatabase db) 
 	{
-		db.execSQL("create table TrackingLog (_id INTEGER PRIMARY KEY, VisitLat INTEGER, VisitLong INTEGER," +
+		
+		db.execSQL("create table if not exists TrackingLog (_id INTEGER PRIMARY KEY, VisitLat INTEGER, VisitLong INTEGER," +
 				" IsSend INTEGER, IsMasfa INTEGER, date TEXT, IsVisitLoc INTEGER, IsValid INTEGER, " +
 				"GpsDate TEXT, Url TEXT)");
-		db.execSQL("insert into TrackingLog(_id) values(1),(2),(3),(4)");
+		db.execSQL("insert into TrackingLog(_id) values(1)");
+		
 	}
 
 	@Override

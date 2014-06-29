@@ -6,8 +6,8 @@ import android.database.sqlite.SQLiteDatabase;
 
 public class dbHelperTrackingLog 
 {
-	DatabaseTrackingLog db;
-	SQLiteDatabase database;
+	private DatabaseTrackingLog db;
+	private SQLiteDatabase database;
 	
 	public dbHelperTrackingLog(Context context) 
 	{
@@ -22,7 +22,7 @@ public class dbHelperTrackingLog
 	
 	public Cursor getAllTrackingLog()
 	{
-		return database.rawQuery("select * from TrackingLog", null);
+		return database.query("TrackingLog", null, null, null, null, null, null);
 	}
 	
 	public void close()

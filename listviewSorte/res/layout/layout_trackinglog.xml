@@ -23,7 +23,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/shape_of_row"
                 android:gravity="center"
-                android:text="id" />
+                android:text="@string/id" />
 
             <ImageView
                 android:id="@+id/imageSortId"
@@ -41,7 +41,7 @@
             android:layout_weight="1"
             android:background="@drawable/shape_of_row"
             android:gravity="center"
-            android:text="VisitLat" />
+            android:text="@string/VisitLat" />
 
         <TextView
             android:id="@+id/columnVisitLong"
@@ -50,7 +50,7 @@
             android:layout_weight="1"
             android:background="@drawable/shape_of_row"
             android:gravity="center"
-            android:text="VisitLong" />
+            android:text="@string/VisitLong" />
 
         <TextView
             android:id="@+id/columnisSend"
@@ -59,7 +59,7 @@
             android:layout_weight="1"
             android:background="@drawable/shape_of_row"
             android:gravity="center"
-            android:text="isSend" />
+            android:text="@string/is_Send" />
 
         <TextView
             android:id="@+id/columnIsMasfa"
@@ -68,7 +68,7 @@
             android:layout_weight="1"
             android:background="@drawable/shape_of_row"
             android:gravity="center"
-            android:text="Is Masfa" />
+            android:text="@string/Is_Masfa" />
 
         <RelativeLayout
             android:layout_width="0dp"
@@ -81,7 +81,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:background="@drawable/shape_of_row"
-                android:text="date" />
+                android:text="@string/date" />
 
             <ImageView
                 android:id="@+id/imageSortCalender"
@@ -99,7 +99,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:background="@drawable/shape_of_row"
-            android:text="visit Loc" />
+            android:text="@string/visit_Loc" />
 
         <TextView
             android:id="@+id/columnIsValid"
@@ -108,7 +108,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:background="@drawable/shape_of_row"
-            android:text="Is Valid" />
+            android:text="@string/Is_Valid" />
 
         <TextView
             android:id="@+id/columnGpsDate"
@@ -117,7 +117,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:background="@drawable/shape_of_row"
-            android:text="Gps Date" />
+            android:text="@string/Gps_Date" />
 
         <TextView
             android:id="@+id/columnUrl"
@@ -126,12 +126,13 @@
             android:layout_weight="1"
             android:gravity="center"
             android:background="@drawable/shape_of_row"
-            android:text="Url" />
+            android:text="@string/Url" />
     </LinearLayout>
 
     <FrameLayout
-        android:id="@+id/listFragment"
+        android:id="@+id/fragmentTrackingLog"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+         />
 
 </LinearLayout>

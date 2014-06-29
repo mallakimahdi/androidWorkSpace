@@ -1,39 +1,38 @@
 package fragmets;
 
 import com.example.listviewsorte.R;
-import com.example.listviewsorte.G;
-import com.example.listviewsorte.R.id;
-import com.example.listviewsorte.R.layout;
-
-import databases.dbHelperTrackingLog;
-import databases.dbhelperBroadcastLog;
+import com.example.listviewsorte.getObjects;
 import adapters.adapterTrackingLog;
 import android.app.ListFragment;
+import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 public class fragmentTrackingLog extends ListFragment 
 {
 	public Cursor cursor;
 	public adapterTrackingLog adapter;
+	private Context mContext;
 	
 	@Override
-	public void onActivityCreated(Bundle savedInstanceState) 
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) 
 	{
-		super.onActivityCreated(savedInstanceState);
+		mContext = getActivity().getApplicationContext();
 		
-		G.dbHelper = new dbHelperTrackingLog(getActivity().getBaseContext());
-		//databaseHelper d = new databaseHelper(getActivity().getBaseContext());
-		G.dbHelper.open();
-		cursor = G.dbHelper.getAllTrackingLog();
+		cursor = getObjects.getHelperDBTrakingLog(mContext).getAllTrackingLog();
 		
 		adapter = new adapterTrackingLog(getActivity().getBaseContext(), 
 				R.layout.row_trackinglog_list , 
 				cursor, 
 				new String[]{"_id"}, 
-				new int[]{R.id.txtId});
+				new int[]{R.id.tvId});
 		
 		
 		setListAdapter(adapter);
+		
+		return super.onCreateView(inflater, container, savedInstanceState);
 	}
 }

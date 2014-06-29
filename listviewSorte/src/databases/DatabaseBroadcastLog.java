@@ -6,7 +6,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseBroadcastLog extends SQLiteOpenHelper 
 {
-
 	public DatabaseBroadcastLog(Context context) 
 	{
 		super(context, "BroadcastLog.db", null, 1);
@@ -15,9 +14,10 @@ public class DatabaseBroadcastLog extends SQLiteOpenHelper
 	@Override
 	public void onCreate(SQLiteDatabase db) 
 	{
-		db.execSQL("create table BroadcastLog(_id INTEGER PRIMARY KEY, " +
+		db.execSQL("create table if not exists BroadcastLog(_id INTEGER PRIMARY KEY, " +
 				"BroadcastType INTEGER, BroadcastText TEXT, " +
 				"Date INTEGER, Description TEXT)");
+		db.execSQL("insert into BroadcastLog(_id) values(0)");
 	}
 
 	@Override
@@ -25,5 +25,4 @@ public class DatabaseBroadcastLog extends SQLiteOpenHelper
 	{
 		
 	}
-	
 }

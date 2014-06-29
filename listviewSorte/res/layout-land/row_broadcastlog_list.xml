@@ -2,52 +2,76 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
-    android:weightSum="5" >
+    android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/columnIdBroadcastLog"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:id="@+id/liRow"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:background="@drawable/shape_row"
-        android:text="id" />
+        android:orientation="horizontal"
+        android:weightSum="5" >
 
-    <TextView
-        android:id="@+id/columnBroadcastType"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:background="@drawable/shape_row"
-        android:gravity="center"
-        android:text="broadcast type" />
+        <TextView
+            android:id="@+id/tvIdBroadcastLog"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:background="@android:color/transparent"
+            android:gravity="center" />
 
-    <TextView
-        android:id="@+id/columnBroadcastText"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:background="@drawable/shape_row"
-        android:gravity="center"
-        android:text="broadcast text" />
+        <TextView
+            android:id="@+id/tvBroadcastType"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:gravity="center" />
 
-    <TextView
-        android:id="@+id/columnDateBroadcastLog"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:background="@drawable/shape_row"
-        android:gravity="center"
-        android:text="broadcast log" />
+        <TextView
+            android:id="@+id/tvBroadcastText"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:gravity="center" />
 
-    <TextView
-        android:id="@+id/columnDescriptionBroadcastLog"
-        android:layout_width="0dp"
+        <TextView
+            android:id="@+id/tvDateBroadcastLog"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/tvDescriptionBroadcastLog"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:background="@android:color/transparent"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/expandable"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:background="@drawable/shape_row"
-        android:gravity="center"
-        android:text="description" />
+        android:background="#000000"
+        android:orientation="horizontal"
+        android:weightSum="2" >
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Action A" />
+
+        <Button
+            android:id="@+id/details"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Action B" />
+    </LinearLayout>
 
 </LinearLayout>

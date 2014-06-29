@@ -4,87 +4,87 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:weightSum="10" >
+    android:weightSum="10">
 
     <TextView
-        android:id="@+id/txtId"
+        android:id="@+id/tvId"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:background="@drawable/shape_row"
+        android:background="@android:color/transparent"
         android:gravity="center" />
     
 
     <TextView
-        android:id="@+id/txtVisitLat"
+        android:id="@+id/tvVisitLat"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/shape_row"
+        android:background="@android:color/transparent"
         android:layout_weight="1"
         android:gravity="center_horizontal" />
    
 
     <TextView
-        android:id="@+id/txtVisitLong"
+        android:id="@+id/tvVisitLong"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/shape_row"
+        android:background="@android:color/transparent"
         android:layout_weight="1"
         android:gravity="center_horizontal" />
 
     <TextView
-        android:id="@+id/txtIsSend"
+        android:id="@+id/tvIsSend"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/shape_row"
+        android:background="@android:color/transparent"
         android:layout_weight="1"
         android:gravity="center_horizontal" />
 
     <TextView
-        android:id="@+id/txtIsMasfa"
+        android:id="@+id/tvIsMasfa"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/shape_row"
+        android:background="@android:color/transparent"
         android:layout_weight="1"
         android:gravity="center_horizontal" />
 
     <TextView
-        android:id="@+id/txtDate"
+        android:id="@+id/tvDate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/shape_row"
+        android:background="@android:color/transparent"
         android:layout_weight="1"
         android:gravity="center_horizontal" />
 
     <TextView
-        android:id="@+id/txtIsVisitLoc"
+        android:id="@+id/tvIsVisitLoc"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/shape_row"
+        android:background="@android:color/transparent"
         android:layout_weight="1"
         android:gravity="center_horizontal" />
 
     <TextView
-        android:id="@+id/txtIsValid"
+        android:id="@+id/tvIsValid"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/shape_row"
+        android:background="@android:color/transparent"
         android:layout_weight="1"
         android:gravity="center_horizontal" />
 
     <TextView
-        android:id="@+id/txtGpsDate"
+        android:id="@+id/tvGpsDate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/shape_row"
+        android:background="@android:color/transparent"
         android:layout_weight="1"
         android:gravity="center_horizontal" />
 
     <TextView
-        android:id="@+id/txtUrl"
+        android:id="@+id/tvUrl"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/shape_row"
+        android:background="@android:color/transparent"
         android:layout_weight="1"
         android:gravity="center_horizontal" />
 
