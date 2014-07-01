@@ -6,7 +6,7 @@ import android.app.Application;
 
 @ReportsCrashes(
 		formKey = "",
-		formUri = "http://192.168.0.139/mysite/crash_reporter2.php",
+		formUri = "http://192.168.0.72:90/acra",
 		mode = ReportingInteractionMode.TOAST,
 		resToastText = R.string.crash_report_message,
 		logcatArguments = {"-t", "100", "-v", "long", "*:E"}

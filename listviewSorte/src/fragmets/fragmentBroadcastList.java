@@ -1,9 +1,12 @@
 package fragmets;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import com.example.listviewsorte.R;
 import com.example.listviewsorte.getObjects;
 import com.tjerkw.slideexpandable.library.SlideExpandableListAdapter;
-
 import adapters.adapterBroadcastLog;
 import android.app.ListFragment;
 import android.content.Context;
@@ -23,6 +26,18 @@ public class fragmentBroadcastList extends ListFragment
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) 
 	{
 		mContext = getActivity().getApplicationContext();
+		try 
+		{
+			InputStream input = (InputStream) new URL("").getContent();
+		} 
+		catch (MalformedURLException e) 
+		{
+			e.printStackTrace();
+		} 
+		catch (IOException e) 
+		{
+			e.printStackTrace();
+		}
 		
 		cursor = getObjects.getHelperDBBroadcastlog(mContext).getAllBroadcastLog();
 		
