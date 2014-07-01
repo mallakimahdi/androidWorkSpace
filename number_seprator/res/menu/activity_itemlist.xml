@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+	<item 
+	    android:id="@+id/abs__title"
+	    android:icon="@drawable/ic_launcher"
+	    android:showAsAction="ifRoom|withText"
+	    android:title="title"
+	    android:titleCondensed="act"
+	    
+	    />
+	 <!-- 
+	<item 
+	    android:id="@+id/about"
+	    android:icon="@drawable/abs__ab_transparent_light_holo"
+	    android:showAsAction="ifRoom"
+	    android:title="@string/abs__searchview_description_search"
+	    android:titleCondensed="@string/action_settings"
+	    />
+      -->
+</menu>
