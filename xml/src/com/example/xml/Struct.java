@@ -1,8 +1,6 @@
 package com.example.xml;
 
-import java.util.ArrayList;
 import java.util.List;
-import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementArray;
 import org.simpleframework.xml.ElementList;

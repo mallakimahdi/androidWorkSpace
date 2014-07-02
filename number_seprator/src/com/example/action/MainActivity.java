@@ -20,15 +20,34 @@ public class MainActivity extends SherlockActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
+		queicSort quick = new queicSort();
+		int[] A = {8,2,4,9,6,7,1,3,5};
+		int[] B = quick.quickSort(A, 0, 8);
+		
 		final Pattern CODE_PATTERN = Pattern.compile("([0-9]{0,4})|([0-9]{4}-)+|([0-9]{4}-[0-9]{0,4})+");
 		edt = (EditText) findViewById(R.id.edt);
 		
 		edt.addTextChangedListener(new TextWatcher() 
 		{
 			@Override
-			public void beforeTextChanged(CharSequence s, int start, int count,	int after) 
+			public void afterTextChanged(Editable s) 
 			{
+				Log.w("", "input"+s.toString());
 				
+				if(s.length() > 0 && !CODE_PATTERN.matcher(s).matches())
+				{
+					String input = s.toString();
+					String numbersOnly = keepNumberOnly(input);
+					String code = formatNumbersAsCode(numbersOnly);
+					
+					Log.w("", "numbersOnly : "+numbersOnly);
+					Log.w("", "code : "+ code);
+					
+					edt.removeTextChangedListener(this);
+					edt.setText(code);
+					edt.setSelection(code.length());
+					edt.addTextChangedListener(this);
+				}
 			}
 			
 			private String formatNumbersAsCode(String input) 
@@ -55,27 +74,11 @@ public class MainActivity extends SherlockActivity
 			}
 
 			@Override
-			public void afterTextChanged(Editable s) 
+			public void onTextChanged(CharSequence s, int start, int before, int count) 
 			{
-				Log.w("", "input"+s.toString());
-				
-				if(s.length() > 0 && !CODE_PATTERN.matcher(s).matches())
-				{
-					String input = s.toString();
-					String numbersOnly = keepNumberOnly(input);
-					String code = formatNumbersAsCode(numbersOnly);
-					
-					Log.w("", "numbersOnly : "+numbersOnly);
-					Log.w("", "code : "+ code);
-					
-					edt.removeTextChangedListener(this);
-					edt.setText(code);
-					edt.setSelection(code.length());
-					edt.addTextChangedListener(this);
-				}
 			}
 			@Override
-			public void onTextChanged(CharSequence s, int start, int before, int count) 
+			public void beforeTextChanged(CharSequence s, int start, int count,	int after) 
 			{
 			}
 		});
