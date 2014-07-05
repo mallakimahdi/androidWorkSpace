@@ -1,50 +1,34 @@
 package com.example.report;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
+import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
-import java.net.Socket;
+import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLConnection;
-import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
-
-import org.acra.ReportField;
 import org.acra.collector.CrashReportData;
 import org.acra.sender.ReportSender;
 import org.acra.sender.ReportSenderException;
-import org.apache.http.HttpConnection;
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpVersion;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.DefaultHttpClientConnection;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.impl.conn.DefaultClientConnection;
 import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.params.CoreProtocolPNames;
-import org.apache.http.params.HttpParams;
-import org.simpleframework.xml.Serializer;
-import org.simpleframework.xml.core.Persister;
-
-import android.os.Environment;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class mysender implements ReportSender
 {
-	HttpClient httpclient;
-	List<NameValuePair> params;
-	HttpPost httpPost;
+	private HttpClient httpclient;
+	private List<NameValuePair> params;
+	private HttpPost httpPost;
 	
 	@Override
 	public void send(CrashReportData errorContent) throws ReportSenderException 
@@ -71,7 +55,7 @@ public class mysender implements ReportSender
 		
 		params.add(new BasicNameValuePair("USER_NAME", "123456"));
 		
-		try 
+		try
 		{
 			httpPost.setEntity(new UrlEncodedFormEntity(params,"UTF-8"));
 			httpclient.execute(httpPost);
@@ -81,6 +65,41 @@ public class mysender implements ReportSender
 		} catch (ClientProtocolException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		JSONObject obj = new JSONObject();
+		try
+		{
+			obj.put("ANDROID_VERSION", "1");
+			obj.put("APP_VERSION_CODE", "123");
+		} 
+		catch (JSONException e) 
+		{
+			e.printStackTrace();
+		}
+		
+		StringWriter out = new StringWriter();
+		String str = obj.toString();
+		
+		LinkedList<String> s;
+		
+		
+		try 
+		{
+			HttpURLConnection con = (HttpURLConnection) new URL("http://192.168.0.72:90/acra").openConnection();
+			con.setRequestMethod("POST");
+			byte[] mybytes = str.getBytes();                                                                                                                                                                            
+			con.connect();
+			con.getOutputStream().write(mybytes);
+			con.disconnect();
+		}
+		catch (MalformedURLException e) 
+		{
+			e.printStackTrace();
+		} 
+		catch (IOException e) 
+		{
 			e.printStackTrace();
 		}
 	}

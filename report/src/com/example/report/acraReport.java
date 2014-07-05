@@ -6,9 +6,9 @@ import android.app.Application;
 
 @ReportsCrashes(
 		formKey = "",
-		//reportType = org.acra.sender.HttpSender.Type.JSON,
-		//formUri = "http://192.168.0.72:90/acra",
-		formUri = "http://192.168.0.139/mysite/crash_reporter2.php",
+		reportType = org.acra.sender.HttpSender.Type.JSON,
+		formUri = "http://192.168.0.72:90/acra",
+		//formUri = "http://192.168.0.139/mysite/crash_reporter2.php",
 		mode = ReportingInteractionMode.TOAST,
 		resToastText = R.string.crash_report_message,
 		logcatArguments = {"-t", "100", "-v", "long", "*:E"}

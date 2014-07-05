@@ -29,4 +29,23 @@
 <fullyQualifiedTypeName name="com.tjerkw.slideexpandable.library.SlideExpandableListAdapter"/>
 <fullyQualifiedTypeName name="com.example.listviewsorte.R.layout"/>
 <fullyQualifiedTypeName name="com.example.listviewsorte.R.id"/>
+<fullyQualifiedTypeName name="java.net.InetSocketAddress"/>
+<fullyQualifiedTypeName name="java.net.HttpURLConnection"/>
+<fullyQualifiedTypeName name="java.net.URL"/>
+<fullyQualifiedTypeName name="java.nio.ByteBuffer"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.LinkedList"/>
+<fullyQualifiedTypeName name="android.app.IntentService"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="android.os.Bundle"/>
+<fullyQualifiedTypeName name="android.os.ResultReceiver"/>
+<fullyQualifiedTypeName name="android.content.Intent"/>
+<fullyQualifiedTypeName name="com.example.dialog.myService"/>
+<fullyQualifiedTypeName name="android.os.Messenger"/>
+<fullyQualifiedTypeName name="android.os.Handler"/>
+<fullyQualifiedTypeName name="android.os.Looper"/>
+<fullyQualifiedTypeName name="com.example.dialog.myHandler"/>
+<fullyQualifiedTypeName name="android.graphics.Bitmap"/>
+<fullyQualifiedTypeName name="android.os.Message"/>
+<fullyQualifiedTypeName name="android.app.Service"/>
 </qualifiedTypeNameHistroy>

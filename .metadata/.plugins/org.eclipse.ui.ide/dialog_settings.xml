@@ -3,15 +3,15 @@
 	<section name="SaveAsDialogSettings">
 		<item value="613" key="DIALOG_WIDTH"/>
 		<item value="0" key="DIALOG_Y_ORIGIN"/>
-		<item value="356" key="DIALOG_X_ORIGIN"/>
 		<item value="596" key="DIALOG_HEIGHT"/>
+		<item value="356" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="CleanDialogSettings">
 		<item value="583" key="DIALOG_WIDTH"/>
 		<item value="162" key="DIALOG_Y_ORIGIN"/>
-		<item value="422" key="DIALOG_X_ORIGIN"/>
 		<item value="421" key="DIALOG_HEIGHT"/>
+		<item value="422" key="DIALOG_X_ORIGIN"/>
 		<item value="false" key="TOGGLE_SELECTED"/>
 	</section>
 </section>
