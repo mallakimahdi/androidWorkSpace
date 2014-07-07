@@ -1,0 +1,28 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="Theme.myTheme" parent="style/Theme.Sherlock.Light">
+        <item name="android:actionBarStyle">@style/Theme.MyAppTheme.ActionBar</item>
+        <item name="actionBarStyle">@style/Theme.MyAppTheme.ActionBar</item>
+        
+        <!-- <item name="actionBarItemBackground">@null</item>
+        <item name="android:actionBarItemBackground">@null</item>  -->
+        <item name="android:selectableItemBackground">@null</item>
+        <item name="selectableItemBackground">@null</item>
+    </style>
+
+    <style name="Theme.MyAppTheme.ActionBar" parent="Widget.Sherlock.ActionBar">
+        <item name="android:background">#FF0000</item>
+        <item name="background">#FF0000</item>
+        <item name="android:height">64dp</item>
+        <item name="height">64dp</item>
+        <item name="android:icon">@drawable/ic_launcher</item>
+    </style>
+
+    <style name="Theme.MyAppTheme.ActionBar.TitleTextStyle" parent="TextAppearance.Sherlock.Widget.ActionBar.Title">
+        <item name="android:textColor">#fff</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:text">@string/hello_world</item>
+    </style>
+
+</resources>

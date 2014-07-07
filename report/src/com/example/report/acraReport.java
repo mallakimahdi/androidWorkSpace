@@ -21,7 +21,7 @@ public class acraReport extends Application
 	{
 		ACRA.init(this);
 		mysender sender = new mysender();
-		ACRA.getErrorReporter().setReportSender(sender);
+		//ACRA.getErrorReporter().setReportSender(sender);
 		ACRA.getErrorReporter().putCustomData("USER_NAME", "123456");
 		
 		super.onCreate();
