@@ -1,23 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="android.widget.TextView"/>
-<fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
-<fullyQualifiedTypeName name="android.database.Cursor"/>
-<fullyQualifiedTypeName name="com.example.listviewsorte.parentApp"/>
-<fullyQualifiedTypeName name="android.widget.ImageView"/>
-<fullyQualifiedTypeName name="com.example.listviewsorte.MainActivity"/>
-<fullyQualifiedTypeName name="android.app.Application"/>
 <fullyQualifiedTypeName name="java.lang.Override"/>
 <fullyQualifiedTypeName name="com.example.dialog.ParentDialog"/>
 <fullyQualifiedTypeName name="com.example.dialog.myDialog"/>
 <fullyQualifiedTypeName name="com.example.dialog.R.layout"/>
-<fullyQualifiedTypeName name="android.R"/>
 <fullyQualifiedTypeName name="android.R.style"/>
 <fullyQualifiedTypeName name="com.example.dialog.R.style"/>
 <fullyQualifiedTypeName name="android.app.AlertDialog"/>
 <fullyQualifiedTypeName name="android.app.AlertDialog.Builder"/>
 <fullyQualifiedTypeName name="org.acra.ACRA"/>
-<fullyQualifiedTypeName name="android.widget.Toast"/>
 <fullyQualifiedTypeName name="android.app.FragmentManager"/>
 <fullyQualifiedTypeName name="com.example.listviewsorte.getObjects"/>
 <fullyQualifiedTypeName name="android.content.Context"/>
@@ -47,10 +38,26 @@
 <fullyQualifiedTypeName name="android.graphics.Bitmap"/>
 <fullyQualifiedTypeName name="android.os.Message"/>
 <fullyQualifiedTypeName name="android.app.Service"/>
-<fullyQualifiedTypeName name="android.app.Activity"/>
 <fullyQualifiedTypeName name="com.actionbarsherlock.view.Menu"/>
 <fullyQualifiedTypeName name="com.actionbarsherlock.app.SherlockActivity"/>
 <fullyQualifiedTypeName name="android.view.MenuInflater"/>
 <fullyQualifiedTypeName name="com.actionbarsherlock.view.MenuInflater"/>
 <fullyQualifiedTypeName name="com.example.actionbar.R.menu"/>
+<fullyQualifiedTypeName name="com.actionbarsherlock.view.MenuItem.OnMenuItemClickListener"/>
+<fullyQualifiedTypeName name="android.widget.Toast"/>
+<fullyQualifiedTypeName name="com.actionbarsherlock.ActionBarSherlock.OnOptionsItemSelectedListener"/>
+<fullyQualifiedTypeName name="android.support.v4.app.Watson.OnOptionsItemSelectedListener"/>
+<fullyQualifiedTypeName name="android.app.Activity"/>
+<fullyQualifiedTypeName name="android.R"/>
+<fullyQualifiedTypeName name="android.R.id"/>
+<fullyQualifiedTypeName name="android.app.ActionBar"/>
+<fullyQualifiedTypeName name="com.example.actionbar.R.drawable"/>
+<fullyQualifiedTypeName name="android.app.ActionBar.Tab"/>
+<fullyQualifiedTypeName name="com.example.list_customers.frag_right"/>
+<fullyQualifiedTypeName name="com.example.list_customers.frg_left"/>
+<fullyQualifiedTypeName name="android.widget.Button"/>
+<fullyQualifiedTypeName name="android.view.View.OnAttachStateChangeListener"/>
+<fullyQualifiedTypeName name="com.example.list_customers.OnArticleSelectedListener"/>
+<fullyQualifiedTypeName name="java.lang.ClassCastException"/>
+<fullyQualifiedTypeName name="com.example.list_customers.MainActivity"/>
 </qualifiedTypeNameHistroy>

@@ -1,9 +1,0 @@
-<resources>
-
-    <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="strokesize_core_btn">1dp</dimen>
-    <dimen name="radius_core_rounded_corners_tv">1dp</dimen>
-
-</resources>

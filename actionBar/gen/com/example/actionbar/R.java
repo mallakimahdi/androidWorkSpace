@@ -1095,8 +1095,6 @@ containing a value of this type.
         public static final int TextAppearance_Sherlock_Widget_PopupMenu_Large=0x7f0a0040;
         public static final int TextAppearance_Sherlock_Widget_PopupMenu_Small=0x7f0a0042;
         public static final int TextAppearance_Sherlock_Widget_TextView_SpinnerItem=0x7f0a0044;
-        /**  <item name="selectableItemBackground">@drawable/my_shape</item> 
-         */
         public static final int Theme_MyAppTheme_ActionBar=0x7f0a005a;
         public static final int Theme_MyAppTheme_ActionBar_TitleTextStyle=0x7f0a005b;
         public static final int Theme_Sherlock=0x7f0a0054;
